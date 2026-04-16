@@ -7,12 +7,8 @@ test.describe("Portfolio Core Functionality", () => {
 
 	test("hero section elements are visible", async ({ portfolioPage }) => {
 		await expect(portfolioPage.heroTitle).toBeVisible();
+		await expect(portfolioPage.heroTitle).toContainText(/Product Engineer/i);
 		await expect(portfolioPage.page.getByText(/UX & QA/i)).toBeVisible();
-		await expect(
-			portfolioPage.page
-				.locator(".hero-description")
-				.getByText(/Product Engineer/i),
-		).toBeVisible();
 		await expect(portfolioPage.viewProjectsBtn).toBeVisible();
 	});
 
