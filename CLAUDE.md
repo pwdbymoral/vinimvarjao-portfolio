@@ -55,3 +55,13 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 - **Context-Agnostic**: If you discover a new pattern that works well, update this `CLAUDE.md` immediately.
 - **Implicit Research**: Always run `npm start` and `npx playwright test` before and after key changes.
 - **Communication**: Be concise, focused, and report failures immediately.
+- **❌ DO NOT**: Use `--no-verify` in any `git commit` or `git push` command. Hooks must always run to ensure quality.
+
+---
+
+## 📦 Automation Memory (.playwright-wizard-mcp/)
+
+This directory stores the technical state of the UI for automation tools.
+
+-   **Maintenance**: Update `pages.md`, `project-config.md`, and `VERIFICATION.md` whenever the UI structure, primary narrative, or key selectors change.
+-   **Purpose**: Ensures that AI agents and automation scripts have a persistent "source of truth" about the interface, preventing discovery drift and brittle tests.
