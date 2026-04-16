@@ -72,8 +72,7 @@ npm run test:watch
 
 - **Expertise**: Frontend Engineering, UX Design, QA Automation.
 - **Passion**: Optimizing delivery workflows and building resilient architectures.
-- **GitHub**: [@vinimvarjao](https://github.com/vinimvarjao)
-- **Repo Name**: `vinimvarjao-portfolio`
+- **GitHub**: [@pwdbymoral](https://github.com/pwdbymoral)
 
 ---
 
