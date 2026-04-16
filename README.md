@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# Vinícius Varjão — Professional Portfolio (2026)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)
+[![Stack](https://img.shields.io/badge/Stack-React%2019%20%2B%20Vite%208-blue)](#)
+[![Testing](https://img.shields.io/badge/Testing-TDD%20%7C%20Playwright-orange)](#)
+[![License](https://img.shields.io/badge/License-MIT-green)](#)
 
-Currently, two official plugins are available:
+> **"Engineering premium digital experiences driven by a passion for UX & QA, fueled by optimized workflows."**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Welcome to my professional portfolio. This project is more than just a showcase of my work; it is a demonstration of my commitment to high-end engineering standards, modern web technologies, and the Test-Driven Development (TDD) philosophy.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack & Infrastructure
 
-## Expanding the ESLint configuration
+This portfolio is built using a futuristic 2026 tech stack, ensuring maximum performance, type safety, and developer experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Core**: [React 19](https://react.dev/) & [TypeScript](https://www.typescriptlang.org/)
+- **Bundler**: [Vite 8](https://vitejs.dev/) (Lightning fast development and builds)
+- **Quality Control**: [Biome](https://biomejs.dev/) (Unified linting, formatting, and optimization)
+- **Testing Suite**: 
+    - **E2E**: [Playwright](https://playwright.dev/) (Cross-browser automation)
+    - **Unit/Component**: [Vitest](https://vitest.dev/)
+- **Workflows**: [Husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) (Enforcing atomic commits and code quality)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Engineering Philosophy (TDD First)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+This project strictly adheres to the **Red-Green-Refactor** cycle. Every feature or UI tweak is first defined by a failing test, then implemented with minimal code, and finally refactored for excellence.
+
+### Project identity guidelines:
+- **Zero biome-ignore**: No shortcuts are taken. All code must pass the strict linting rules.
+- **Atomic Commits**: Every change is tracked with semantic and atomic git commits.
+- **Enterprise Standards**: Follows the `CLAUDE.md` living specification pattern for AI-agent collaboration.
+
+---
+
+## 🏃 Getting Started
+
+### Prerequisites
+- Node.js (Latest LTS)
+- npm or yarn
+
+### Installation
+```bash
+git clone https://github.com/pwdbymoral/vinimvarjao-portfolio.git
+cd vinimvarjao-portfolio
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Running Locally
+```bash
+npm run dev
 ```
+
+### Testing Everything
+```bash
+# Run all tests (Unit + E2E)
+npm run test:all
+
+# Run E2E specifically
+npm run test:e2e
+
+# Run Vitest Watch
+npm run test:watch
+```
+
+---
+
+## 🎨 Professional Identity
+
+- **Expertise**: Frontend Engineering, UX Design, QA Automation.
+- **Passion**: Optimizing delivery workflows and building resilient architectures.
+- **GitHub**: [@vinimvarjao](https://github.com/vinimvarjao)
+- **Repo Name**: `vinimvarjao-portfolio`
+
+---
+
+Built with ❤️ by **Vinícius Varjão** in 2026.
