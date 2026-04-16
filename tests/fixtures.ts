@@ -14,7 +14,7 @@ type WorkerFixtures = {
 export const test = base.extend<TestFixtures, WorkerFixtures>({
 	// Worker fixture
 	workerId: [
-		async (_, use, testInfo) => {
+		async ({ workerIndex: _ }, use, testInfo) => {
 			await use(`w${testInfo.parallelIndex}`);
 		},
 		{ scope: "worker" },

@@ -46,11 +46,12 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 ### Code Quality
 - **Indentation**: Tabs (per `biome.json`).
 - **Quotes**: Double quotes (`"`).
-- **Anti-Patterns**: No `any`, no hardcoded secrets, no brittle selectors (use accessible roles).
+- **Anti-Patterns (Wall of Shame)**: No `any`, no hardcoded secrets, no brittle selectors. 
+- **❌ DO NOT**: Use `biome-ignore` comments. Fix the root cause or adjust `biome.json`.
 
 ---
 
 ## 🤖 AI Interaction & Living Spec
 - **Context-Agnostic**: If you discover a new pattern that works well, update this `CLAUDE.md` immediately.
-- **Implicit Research**: Always run `npm start` and `npx playwright test` to verify your environment status before and after key changes.
-- **Communication**: Be concise, focused, and report failures immediately with root cause analysis.
+- **Implicit Research**: Always run `npm start` and `npx playwright test` before and after key changes.
+- **Communication**: Be concise, focused, and report failures immediately.
