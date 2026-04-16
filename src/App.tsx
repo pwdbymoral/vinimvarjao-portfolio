@@ -3,35 +3,35 @@ import { useEffect, useState } from "react";
 const projects = [
 	{
 		id: 1,
-		title: "EcoSphere Dashboard",
-		category: "Product Design",
+		title: "Dindinho",
+		category: "Fintech / PWA",
 		description:
-			"A comprehensive environmental monitoring dashboard for smart cities.",
-		tags: ["React", "D3.js", "IoT"],
+			"PWA de organização financeira que utiliza 'Explosão de Parcelas' para performance e sincronização de estado via URL para colaboração.",
+		tags: ["Angular 21", "Node.js", "Prisma", "MySQL"],
 	},
 	{
 		id: 2,
-		title: "Lumina AI",
-		category: "Machine Learning",
+		title: "CheckFacil",
+		category: "Event Management / PWA",
 		description:
-			"Generative AI interface for creative designers and architects.",
-		tags: ["Next.js", "OpenAI", "Tailwind"],
+			"Sistema PWA para gestão de eventos com check-in em tempo real e arquitetura monorepo voltada para escalabilidade.",
+		tags: ["React", "Node.js", "Sequelize", "Turborepo"],
 	},
 	{
 		id: 3,
-		title: "Voyager Pay",
-		category: "Fintech",
+		title: "Lojinho do Tatu",
+		category: "E-commerce Study",
 		description:
-			"Borderless cryptocurrency payment gateway for enterprise businesses.",
-		tags: ["Solidity", "TypeScript", "Node.js"],
+			"Plataforma de e-commerce fictícia focada no estudo de renderização do Next.js e padrões de UI modernos com Tailwind CSS.",
+		tags: ["Next.js", "React", "Tailwind CSS"],
 	},
 	{
 		id: 4,
-		title: "Nexus OS",
-		category: "Interface Design",
+		title: "vinimvarjao-portfolio",
+		category: "Personal Portfolio",
 		description:
-			"Minimalist desktop operating system concept for focused deep work.",
-		tags: ["Figma", "WebAssembly", "Rust"],
+			"Este portfólio premium: arquitetura voltada para TDD, qualidade de código extrema (Biome) e automação de testes com Playwright e Vitest.",
+		tags: ["React", "TypeScript", "Playwright", "Vitest"],
 	},
 ];
 
@@ -190,9 +190,6 @@ function App() {
 							justifyContent: "center",
 						}}
 					>
-						<a href="/" className="nav-link">
-							Twitter
-						</a>
 						<a href="https://github.com/pwdbymoral" className="nav-link">
 							GitHub
 						</a>

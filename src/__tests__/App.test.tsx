@@ -17,4 +17,12 @@ describe("App Component", () => {
 			screen.getByText(/fluxos de trabalho otimizados/i),
 		).toBeInTheDocument();
 	});
+
+	it("renders the 4 selected projects", () => {
+		render(<App />);
+		expect(screen.getByText("Dindinho")).toBeInTheDocument();
+		expect(screen.getByText("CheckFacil")).toBeInTheDocument();
+		expect(screen.getByText("Lojinho do Tatu")).toBeInTheDocument();
+		expect(screen.getByText("vinimvarjao-portfolio")).toBeInTheDocument();
+	});
 });

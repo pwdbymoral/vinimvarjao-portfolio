@@ -60,13 +60,27 @@ test.describe("Portfolio Core Functionality", () => {
 	test("footer displays social links", async ({ portfolioPage }) => {
 		await expect(portfolioPage.footer).toBeVisible();
 		await expect(
-			portfolioPage.page.getByRole("link", { name: "Twitter" }),
-		).toBeVisible();
-		await expect(
 			portfolioPage.page.getByRole("link", { name: "GitHub" }),
 		).toBeVisible();
 		await expect(
 			portfolioPage.page.getByRole("link", { name: "LinkedIn" }),
+		).toBeVisible();
+	});
+
+	test("contains the specific real projects", async ({ portfolioPage }) => {
+		await expect(
+			portfolioPage.page.getByRole("heading", { name: "Dindinho" }),
+		).toBeVisible();
+		await expect(
+			portfolioPage.page.getByRole("heading", { name: "CheckFacil" }),
+		).toBeVisible();
+		await expect(
+			portfolioPage.page.getByRole("heading", { name: "Lojinho do Tatu" }),
+		).toBeVisible();
+		await expect(
+			portfolioPage.page.getByRole("heading", {
+				name: "vinimvarjao-portfolio",
+			}),
 		).toBeVisible();
 	});
 });
