@@ -12,17 +12,20 @@ describe("App Component", () => {
 
 	it("contains the hero section with the mission summary", () => {
 		render(<App />);
-		expect(screen.getByText(/UX e QA/i)).toBeInTheDocument();
-		expect(
-			screen.getByText(/fluxos de trabalho otimizados/i),
-		).toBeInTheDocument();
+		expect(screen.getByText(/UX & QA/i)).toBeInTheDocument();
+		expect(screen.getByText(/Product Engineer/i)).toBeInTheDocument();
 	});
 
-	it("renders the 4 selected projects", () => {
+	it("renders the 4 selected projects with links", () => {
 		render(<App />);
-		expect(screen.getByText("Dindinho")).toBeInTheDocument();
+		const dindinho = screen.getByText("Dindinho");
+		expect(dindinho).toBeInTheDocument();
 		expect(screen.getByText("CheckFacil")).toBeInTheDocument();
 		expect(screen.getByText("Lojinho do Tatu")).toBeInTheDocument();
 		expect(screen.getByText("vinimvarjao-portfolio")).toBeInTheDocument();
+
+		// Check if GitHub links are present
+		const githubLinks = screen.getAllByRole("link", { name: /GitHub/i });
+		expect(githubLinks.length).toBeGreaterThanOrEqual(4);
 	});
 });

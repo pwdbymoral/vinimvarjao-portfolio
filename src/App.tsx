@@ -6,32 +6,37 @@ const projects = [
 		title: "Dindinho",
 		category: "Fintech / PWA",
 		description:
-			"PWA de organização financeira que utiliza 'Explosão de Parcelas' para performance e sincronização de estado via URL para colaboração.",
-		tags: ["Angular 21", "Node.js", "Prisma", "MySQL"],
+			"Full-stack PWA for financial organization, featuring shared expenses and URL-based state synchronization for collaboration.",
+		tags: ["Angular", "Node.js", "Prisma", "MySQL"],
+		repoUrl: "https://github.com/pwdbymoral/dindinho",
 	},
 	{
 		id: 2,
 		title: "CheckFacil",
 		category: "Event Management / PWA",
 		description:
-			"Sistema PWA para gestão de eventos com check-in em tempo real e arquitetura monorepo voltada para escalabilidade.",
-		tags: ["React", "Node.js", "Sequelize", "Turborepo"],
+			"Event management PWA with real-time check-in/out and a scalable monorepo architecture for event staff.",
+		tags: ["React", "Node.js", "TypeScript", "Turborepo"],
+		repoUrl: "https://github.com/forjacorp/checkFacil",
 	},
 	{
 		id: 3,
 		title: "Lojinho do Tatu",
 		category: "E-commerce Study",
 		description:
-			"Plataforma de e-commerce fictícia focada no estudo de renderização do Next.js e padrões de UI modernos com Tailwind CSS.",
-		tags: ["Next.js", "React", "Tailwind CSS"],
+			"Full-stack e-commerce platform focused on server-side rendering, modern UI patterns, and Storybook documentation.",
+		tags: ["Next.js", "React", "Tailwind CSS", "Storybook"],
+		repoUrl: "https://github.com/pwdbymoral/lojinho-do-tatu-nextjs",
+		liveUrl: "https://lojinhodotatu.vercel.app",
 	},
 	{
 		id: 4,
 		title: "vinimvarjao-portfolio",
 		category: "Personal Portfolio",
 		description:
-			"Este portfólio premium: arquitetura voltada para TDD, qualidade de código extrema (Biome) e automação de testes com Playwright e Vitest.",
+			"Premium developer portfolio built with a focus on TDD, extreme code quality, and automated testing pipelines.",
 		tags: ["React", "TypeScript", "Playwright", "Vitest"],
+		repoUrl: "https://github.com/pwdbymoral/vinimvarjao-portfolio",
 	},
 ];
 
@@ -99,13 +104,14 @@ function App() {
 					<div className="container">
 						<span className="hero-tag">Available for new opportunities</span>
 						<h1 className="hero-title">
-							Building premium experiences
+							Product Engineer
 							<br />
-							driven by passion for UX & QA.
+							at the intersection of UX & QA.
 						</h1>
 						<p className="hero-description">
-							Vinícius Varjão — Desenvolvedor com paixão por UX e QA que busca
-							constantemente fluxos de trabalho otimizados e excelência técnica.
+							I build digital products that not only work flawlessly but solve
+							real problems and generate measurable results through technical
+							excellence and business strategy.
 						</p>
 						<div
 							style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
@@ -144,11 +150,47 @@ function App() {
 										{project.description}
 									</p>
 									<div className="card-footer">
-										{project.tags.map((tag) => (
-											<span key={tag} className="tag">
-												{tag}
-											</span>
-										))}
+										<div
+											style={{
+												display: "flex",
+												gap: "0.5rem",
+												flexWrap: "wrap",
+											}}
+										>
+											{project.tags.map((tag) => (
+												<span key={tag} className="tag">
+													{tag}
+												</span>
+											))}
+										</div>
+										<div
+											style={{
+												marginTop: "1rem",
+												display: "flex",
+												gap: "1rem",
+											}}
+										>
+											<a
+												href={project.repoUrl}
+												className="nav-link"
+												style={{ fontSize: "0.8rem" }}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												GitHub
+											</a>
+											{project.liveUrl && (
+												<a
+													href={project.liveUrl}
+													className="nav-link"
+													style={{ fontSize: "0.8rem" }}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													Live Demo
+												</a>
+											)}
+										</div>
 									</div>
 								</div>
 							))}
@@ -171,9 +213,9 @@ function App() {
 						<h2 style={{ marginBottom: "1.5rem" }}>The Approach</h2>
 						<p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>
 							I believe in building software that is not only functional but
-							also a joy to use. By leveraging modern technologies and clean
-							architecture, I create solutions that scale and provide real value
-							to users.
+							also a joy to use. By connecting code to business strategy and
+							understanding the user journey from acquisition to final
+							interaction, I create solutions that scale and provide real value.
 						</p>
 					</div>
 				</section>

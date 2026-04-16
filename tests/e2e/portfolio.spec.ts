@@ -7,11 +7,11 @@ test.describe("Portfolio Core Functionality", () => {
 
 	test("hero section elements are visible", async ({ portfolioPage }) => {
 		await expect(portfolioPage.heroTitle).toBeVisible();
-		await expect(portfolioPage.page.getByText(/UX e QA/i)).toBeVisible();
+		await expect(portfolioPage.page.getByText(/UX & QA/i)).toBeVisible();
 		await expect(
 			portfolioPage.page
 				.locator(".hero-description")
-				.getByText(/Vinícius Varjão/i),
+				.getByText(/Product Engineer/i),
 		).toBeVisible();
 		await expect(portfolioPage.viewProjectsBtn).toBeVisible();
 	});
@@ -60,14 +60,16 @@ test.describe("Portfolio Core Functionality", () => {
 	test("footer displays social links", async ({ portfolioPage }) => {
 		await expect(portfolioPage.footer).toBeVisible();
 		await expect(
-			portfolioPage.page.getByRole("link", { name: "GitHub" }),
+			portfolioPage.footer.getByRole("link", { name: "GitHub" }),
 		).toBeVisible();
 		await expect(
-			portfolioPage.page.getByRole("link", { name: "LinkedIn" }),
+			portfolioPage.footer.getByRole("link", { name: "LinkedIn" }),
 		).toBeVisible();
 	});
 
-	test("contains the specific real projects", async ({ portfolioPage }) => {
+	test("contains the specific real projects with github links", async ({
+		portfolioPage,
+	}) => {
 		await expect(
 			portfolioPage.page.getByRole("heading", { name: "Dindinho" }),
 		).toBeVisible();
@@ -82,5 +84,12 @@ test.describe("Portfolio Core Functionality", () => {
 				name: "vinimvarjao-portfolio",
 			}),
 		).toBeVisible();
+
+		// Check if each card has a GitHub link
+		const githubLinks = portfolioPage.page.getByRole("link", {
+			name: "GitHub",
+		});
+		const count = await githubLinks.count();
+		expect(count).toBeGreaterThanOrEqual(5); // 4 projects + 1 footer
 	});
 });
