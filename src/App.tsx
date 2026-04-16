@@ -3,16 +3,18 @@ import { useEffect, useState } from "react";
 const GitHubIcon = () => (
 	<svg
 		viewBox="0 0 24 24"
-		width="16"
-		height="16"
+		width="20"
+		height="20"
 		stroke="currentColor"
-		strokeWidth="2"
+		strokeWidth="3"
 		fill="none"
 		strokeLinecap="round"
 		strokeLinejoin="round"
-		style={{ verticalAlign: "middle", marginRight: "6px" }}
-		aria-hidden="true"
+		style={{ verticalAlign: "middle", marginRight: "8px" }}
+		role="img"
+		aria-label="GitHub Icon"
 	>
+		<title>GitHub Icon</title>
 		<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
 	</svg>
 );
@@ -20,16 +22,18 @@ const GitHubIcon = () => (
 const ExternalIcon = () => (
 	<svg
 		viewBox="0 0 24 24"
-		width="14"
-		height="14"
+		width="18"
+		height="18"
 		stroke="currentColor"
-		strokeWidth="2"
+		strokeWidth="3"
 		fill="none"
 		strokeLinecap="round"
 		strokeLinejoin="round"
-		style={{ verticalAlign: "middle", marginRight: "6px" }}
-		aria-hidden="true"
+		style={{ verticalAlign: "middle", marginRight: "8px" }}
+		role="img"
+		aria-label="External Link Icon"
 	>
+		<title>External Link Icon</title>
 		<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
 		<polyline points="15 3 21 3 21 9" />
 		<line x1="10" y1="14" x2="21" y2="3" />
@@ -44,7 +48,7 @@ const projects = [
 		description:
 			"Full-stack PWA for financial organization, featuring shared expenses and URL-based state synchronization for collaboration.",
 		tags: ["Angular", "Node.js", "Prisma", "MySQL"],
-		repoUrl: "https://github.com/pwdbymoral/dindinho",
+		repoUrl: "https://github.com/forjacorp/dindinho",
 	},
 	{
 		id: 2,
@@ -95,7 +99,7 @@ function App() {
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: "smooth",
+			behavior: "auto",
 		});
 	};
 
@@ -105,13 +109,13 @@ function App() {
 				<div className="container header-content">
 					<div
 						style={{
-							fontSize: "1.25rem",
-							fontWeight: 700,
-							letterSpacing: "-0.02em",
+							fontSize: "1.5rem",
+							fontWeight: 900,
+							letterSpacing: "-0.05em",
+							textTransform: "uppercase",
 						}}
 					>
 						VINÍCIUS VARJÃO
-						<span style={{ color: "var(--accent-primary)" }}>.</span>
 					</div>
 					<nav>
 						<ul className="nav-links">
@@ -137,29 +141,27 @@ function App() {
 
 			<main>
 				<section className="hero">
-					<div className="container">
+					<div className="container" style={{ textAlign: "left" }}>
 						<span className="hero-tag">Available for new opportunities</span>
 						<h1 className="hero-title">
-							Product Engineer
-							<br />
-							at the intersection of UX & QA.
+							Product <br />
+							Engineer.
 						</h1>
-						<p className="hero-description">
-							I build digital products that not only work flawlessly but solve
-							real problems and generate measurable results through technical
-							excellence and business strategy.
-						</p>
+						<div className="hero-description">
+							I solve real problems through technical excellence and business
+							strategy. Expert in the intersection of UX and Quality Assurance.
+						</div>
 						<div
-							style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
+							style={{
+								display: "flex",
+								gap: "1.5rem",
+								flexWrap: "wrap",
+							}}
 						>
 							<a href="#work" className="btn btn-primary">
-								View Projects
+								Selected Work ↓
 							</a>
-							<a
-								href="#contact"
-								className="btn"
-								style={{ border: "1px solid var(--border-highlight)" }}
-							>
+							<a href="#contact" className="btn">
 								Get in touch
 							</a>
 						</div>
@@ -168,75 +170,58 @@ function App() {
 
 				<section id="work" className="section">
 					<div className="container">
-						<h2 className="section-title">Selected Works</h2>
+						<h2>Selected Works</h2>
 						<div className="grid">
 							{projects.map((project) => (
 								<div key={project.id} className="card">
-									<div className="card-image-placeholder">
-										<span>{project.title} Preview</span>
-									</div>
 									<div className="card-category">{project.category}</div>
 									<h3 className="card-title">{project.title}</h3>
-									<p
-										style={{
-											color: "var(--text-secondary)",
-											fontSize: "0.9rem",
-										}}
-									>
+									<p style={{ fontWeight: 600, marginBottom: "1.5rem" }}>
 										{project.description}
 									</p>
 									<div className="card-footer">
-										<div
-											style={{
-												display: "flex",
-												gap: "0.5rem",
-												flexWrap: "wrap",
-											}}
+										{project.tags.map((tag) => (
+											<span key={tag} className="tag">
+												{tag}
+											</span>
+										))}
+									</div>
+									<div
+										style={{
+											marginTop: "2rem",
+											display: "flex",
+											flexDirection: "column",
+											gap: "1rem",
+										}}
+									>
+										<a
+											href={project.repoUrl}
+											className="btn"
+											style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label={`View source code for ${project.title} on GitHub (opens in a new tab)`}
 										>
-											{project.tags.map((tag) => (
-												<span key={tag} className="tag">
-													{tag}
-												</span>
-											))}
-										</div>
-										<div
-											style={{
-												marginTop: "1rem",
-												display: "flex",
-												gap: "1rem",
-											}}
-										>
+											<GitHubIcon />
+											View Source
+										</a>
+										{project.liveUrl && (
 											<a
-												href={project.repoUrl}
-												className="nav-link"
+												href={project.liveUrl}
+												className="btn"
 												style={{
-													fontSize: "0.8rem",
-													display: "flex",
-													alignItems: "center",
+													padding: "0.5rem 1rem",
+													fontSize: "0.9rem",
+													background: "var(--accent-primary)",
 												}}
 												target="_blank"
 												rel="noopener noreferrer"
+												aria-label={`View live demo of ${project.title} (opens in a new tab)`}
 											>
-												<GitHubIcon />
-												GitHub
+												<ExternalIcon />
+												Live Demo
 											</a>
-											{project.liveUrl && (
-												<a
-													href={project.liveUrl}
-													className="nav-link"
-													style={{
-														fontSize: "0.8rem",
-														display: "flex",
-														alignItems: "center",
-													}}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<ExternalIcon />
-													Live Demo
-												</a>
-											)}
-										</div>
+										)}
 									</div>
 								</div>
 							))}
@@ -248,48 +233,102 @@ function App() {
 					id="about"
 					className="section"
 					style={{
-						background: "var(--bg-secondary)",
-						borderBlock: "1px solid var(--border-subtle)",
+						background: "var(--accent-primary)",
+						borderTop: "var(--border-main)",
 					}}
 				>
-					<div
-						className="container"
-						style={{ textAlign: "center", maxWidth: "800px" }}
-					>
-						<h2 style={{ marginBottom: "1.5rem" }}>The Approach</h2>
-						<p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>
-							I believe in building software that is not only functional but
-							also a joy to use. By connecting code to business strategy and
-							understanding the user journey from acquisition to final
-							interaction, I create solutions that scale and provide real value.
-						</p>
+					<div className="container">
+						<h2>The Approach</h2>
+						<div
+							style={{
+								background: "#ffffff",
+								border: "var(--border-main)",
+								boxShadow: "var(--shadow-main)",
+								padding: "2rem",
+								maxWidth: "800px",
+							}}
+						>
+							<p
+								style={{
+									fontSize: "1.5rem",
+									fontWeight: 800,
+									lineHeight: 1.2,
+								}}
+							>
+								I build software that doesn't just work—it scales and solves. By
+								connecting code to strategy and UX, I ensure every line delivers
+								real business value.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section id="contact" className="section">
+					<div className="container">
+						<h2>Connect</h2>
+						<div className="grid">
+							<a
+								href="https://github.com/pwdbymoral"
+								className="btn"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Visit my GitHub profile (opens in a new tab)"
+							>
+								<GitHubIcon />
+								GitHub Profile
+							</a>
+							<a
+								href="https://linkedin.com/in/vinmvarjao"
+								className="btn"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Connect with me on LinkedIn (opens in a new tab)"
+							>
+								LinkedIn
+							</a>
+						</div>
 					</div>
 				</section>
 			</main>
 
 			<footer className="footer">
 				<div className="container">
-					<p>&copy; 2026 Designed & Built with React 19 & Vite 8</p>
+					<ul className="nav-links">
+						<li>
+							<a href="#work" className="nav-link">
+								Work
+							</a>
+						</li>
+						<li>
+							<a href="#about" className="nav-link">
+								About
+							</a>
+						</li>
+						<li>
+							<a href="#contact" className="nav-link">
+								Contact
+							</a>
+						</li>
+					</ul>
 					<div
 						style={{
-							marginTop: "1rem",
+							marginTop: "2rem",
 							display: "flex",
 							gap: "1.5rem",
 							justifyContent: "center",
+							marginBottom: "2rem",
 						}}
 					>
-						<a
-							href="https://github.com/pwdbymoral"
-							className="nav-link"
-							style={{ display: "flex", alignItems: "center" }}
-						>
-							<GitHubIcon />
+						<a href="https://github.com/pwdbymoral" className="nav-link">
 							GitHub
 						</a>
 						<a href="https://linkedin.com/in/vinmvarjao" className="nav-link">
 							LinkedIn
 						</a>
 					</div>
+					<p style={{ fontWeight: 800, textTransform: "uppercase" }}>
+						&copy; 2026 Developed with Product Engineering mindset
+					</p>
 				</div>
 			</footer>
 
