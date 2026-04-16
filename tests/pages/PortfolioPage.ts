@@ -16,7 +16,7 @@ export class PortfolioPage extends BasePage {
 
 	constructor(page: Page) {
 		super(page);
-		this.brand = page.getByText("PORTFOLIO");
+		this.brand = page.locator(".header").getByText(/VINÍCIUS VARJÃO/i);
 		this.navWork = page.getByRole("link", { name: "Work" });
 		this.navAbout = page.getByRole("link", { name: "About" });
 		this.navContact = page.getByRole("link", { name: "Contact" });
