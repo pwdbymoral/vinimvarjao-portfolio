@@ -2,7 +2,7 @@
 
 > **Analysis Method:** ✅ LIVE BROWSER TESTING with Chrome DevTools MCP
 
-## Home Page (/) - Score: 95/100 ✅ POM created & verified
+## Home Page (/) - Score: 98/100 ✅ POM created & verified
 
 **Verification:** ✅ Visited, ✅ Snapshot taken, ✅ Selectors verified
 
@@ -10,19 +10,22 @@
 
 | Element | Role / Text | Selector | Status |
 |---------|-------------|----------|--------|
-| Brand | StaticText "PORTFOLIO" | `getByText('PORTFOLIO')` | ✅ VERIFIED |
-| Work Link | Link "Work" | `getByRole('link', { name: 'Work' })` | ✅ VERIFIED |
-| About Link | Link "About" | `getByRole('link', { name: 'About' })` | ✅ VERIFIED |
-| Contact Link | Link "Contact" | `getByRole('link', { name: 'Contact' })` | ✅ VERIFIED |
-| View Projects | Link "View Projects" | `getByRole('link', { name: 'View Projects' })` | ✅ VERIFIED |
-| Get in touch | Link "Get in touch" | `getByRole('link', { name: 'Get in touch' })` | ✅ VERIFIED |
-| Twitter Link | Link "Twitter" | `getByRole('link', { name: 'Twitter' })` | ✅ VERIFIED |
+| Brand | Heading "VINÍCIUS VARJÃO" | `getByText(/VINÍCIUS VARJÃO/i)` | ✅ VERIFIED |
+| Work Link | Link "Work" | `locator(".header").getByRole('link', { name: /Work/i })` | ✅ VERIFIED |
+| About Link | Link "About" | `locator(".header").getByRole('link', { name: /About/i })` | ✅ VERIFIED |
+| Contact Link | Link "Contact" | `locator(".header").getByRole('link', { name: /Contact/i })` | ✅ VERIFIED |
+| Selected Work | Link "Selected Work" | `getByRole('link', { name: /Selected Work/i })` | ✅ VERIFIED |
+| Get in touch | Link "Get in touch" | `getByRole('link', { name: /Get in touch/i })` | ✅ VERIFIED |
+| GitHub Profile | Link "GitHub Profile" | `getByRole('link', { name: /GitHub Profile/i })` | ✅ VERIFIED |
+| LinkedIn Link | Link "LinkedIn" | `getByRole('link', { name: 'LinkedIn' })` | ✅ VERIFIED |
 
 **Score Rationale:**
 - Excellent use of semantic HTML5 landmarks (`banner`, `navigation`, `main`, `contentinfo`).
 - Correct heading hierarchy (h1 -> h2 -> h3).
 - Accessible names on all interactive elements.
+- **Improved Narration:** Professional "Product Engineer" branding integrated.
 
 **Flow Tested:**
 - ✅ Navigation links confirmed to point to correct anchors.
 - ✅ Hero actions confirmed.
+- ✅ Project card links (GitHub & Live Demo) verified.

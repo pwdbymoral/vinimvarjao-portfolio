@@ -1,13 +1,9 @@
-# Vinícius Varjão — Professional Portfolio (2026)
+[![Design](https://img.shields.io/badge/Design-Neo--Brutalism-yellow)](#)
+[![Accessibility](https://img.shields.io/badge/A11y-WCAG%20AA-success)](#)
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)
-[![Stack](https://img.shields.io/badge/Stack-React%2019%20%2B%20Vite%208-blue)](#)
-[![Testing](https://img.shields.io/badge/Testing-TDD%20%7C%20Playwright-orange)](#)
-[![License](https://img.shields.io/badge/License-MIT-green)](#)
+> **"Product-driven engineering defined by technical authority, extreme quality (TDD), and accessible UX strategy."**
 
-> **"Engineering premium digital experiences driven by a passion for UX & QA, fueled by optimized workflows."**
-
-Welcome to my professional portfolio. This project is more than just a showcase of my work; it is a demonstration of my commitment to high-end engineering standards, modern web technologies, and the Test-Driven Development (TDD) philosophy.
+Welcome to my professional portfolio. This project is a demonstration of high-impact **Neo-Brutalist** design optimized for **SEO** and **Accessibility**, built with a strict TDD foundation.
 
 ---
 

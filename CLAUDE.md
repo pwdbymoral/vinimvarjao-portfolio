@@ -39,7 +39,7 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 
 ### React & Components
 - **Version**: React 19 (Latest features).
-- **Styling**: Vanilla CSS with predefined CSS Variables in `src/index.css`. Use **Glassmorphism** for premium feel.
+- **Styling**: Vanilla CSS with predefined CSS Variables in `src/index.css`. Use **Neo-Brutalism** (high contrast, bold borders, hard shadows) for a professional, engineered feel. Priority on **Mobile-First** responsiveness and **A11y** standards.
 - **Complexity**: Priority $O(n)$ or $O(1)$. Analyze Big O before coding.
 - **Batching**: Use batch operations for any side effect involving multiple items.
 
