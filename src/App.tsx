@@ -69,7 +69,8 @@ function App() {
 							letterSpacing: "-0.02em",
 						}}
 					>
-						PORTFOLIO<span style={{ color: "var(--accent-primary)" }}>.</span>
+						VINÍCIUS VARJÃO
+						<span style={{ color: "var(--accent-primary)" }}>.</span>
 					</div>
 					<nav>
 						<ul className="nav-links">
@@ -98,14 +99,13 @@ function App() {
 					<div className="container">
 						<span className="hero-tag">Available for new opportunities</span>
 						<h1 className="hero-title">
-							Crafting digital experiences
+							Building premium experiences
 							<br />
-							at the intersection of code & design.
+							driven by passion for UX & QA.
 						</h1>
 						<p className="hero-description">
-							Senior Full Stack Engineer specializing in building scalable web
-							applications with a focus on user experience and technical
-							excellence.
+							Vinícius Varjão — Desenvolvedor com paixão por UX e QA que busca
+							constantemente fluxos de trabalho otimizados e excelência técnica.
 						</p>
 						<div
 							style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
@@ -193,10 +193,10 @@ function App() {
 						<a href="/" className="nav-link">
 							Twitter
 						</a>
-						<a href="/" className="nav-link">
+						<a href="https://github.com/pwdbymoral" className="nav-link">
 							GitHub
 						</a>
-						<a href="/" className="nav-link">
+						<a href="https://linkedin.com/in/vinmvarjao" className="nav-link">
 							LinkedIn
 						</a>
 					</div>

@@ -1,6 +1,6 @@
 # CLAUDE.md — Living Project Specification
 
-> **Project Identity**: Premium Portfolio (TDD Enterprise Edition)  
+> **Project Identity**: Vinícius Varjão - Professional Portfolio (TDD Enterprise Edition)  
 > **Standard**: Akita Chronicles / Enterprise AI Integration
 
 This file is the **Source of Truth** for all development workflows. It must be updated whenever project architectural decisions evolve.

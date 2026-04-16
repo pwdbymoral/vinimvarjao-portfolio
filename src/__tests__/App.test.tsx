@@ -3,15 +3,18 @@ import { describe, expect, it } from "vitest";
 import App from "../App";
 
 describe("App Component", () => {
-	it("renders the portfolio title", () => {
+	it("renders the professional name (Vinícius Varjão)", () => {
 		render(<App />);
-		expect(screen.getByText(/PORTFOLIO/i)).toBeInTheDocument();
+		const elements = screen.getAllByText(/Vinícius Varjão/i);
+		expect(elements.length).toBeGreaterThanOrEqual(1);
+		expect(elements[0]).toBeInTheDocument();
 	});
 
-	it("contains the hero section with correct wording", () => {
+	it("contains the hero section with the mission summary", () => {
 		render(<App />);
+		expect(screen.getByText(/UX e QA/i)).toBeInTheDocument();
 		expect(
-			screen.getByText(/Crafting digital experiences/i),
+			screen.getByText(/fluxos de trabalho otimizados/i),
 		).toBeInTheDocument();
 	});
 });
