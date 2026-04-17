@@ -40,6 +40,27 @@ const ExternalIcon = () => (
 	</svg>
 );
 
+const LinkedInIcon = () => (
+	<svg
+		viewBox="0 0 24 24"
+		width="20"
+		height="20"
+		stroke="currentColor"
+		strokeWidth="3"
+		fill="none"
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		style={{ verticalAlign: "middle", marginRight: "8px" }}
+		role="img"
+		aria-label="LinkedIn Icon"
+	>
+		<title>LinkedIn Icon</title>
+		<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+		<rect x="2" y="9" width="4" height="12" />
+		<circle cx="4" cy="4" r="2" />
+	</svg>
+);
+
 const projects = [
 	{
 		id: 1,
@@ -80,8 +101,88 @@ const projects = [
 	},
 ];
 
+const skills = [
+	"React",
+	"Angular",
+	"TypeScript",
+	"Node.js",
+	"Playwright",
+	"Vitest",
+	"PostgreSQL",
+	"MySQL",
+	"Docker",
+	"UX Strategy",
+	"TDD",
+	"Product Engineering",
+];
+
+interface StickerProps {
+	text: string;
+	top?: string;
+	left?: string;
+	right?: string;
+	rotation?: string;
+	className?: string;
+}
+
+const Sticker = ({
+	text,
+	top,
+	left,
+	right,
+	rotation,
+	className,
+}: StickerProps) => (
+	<div
+		className={`sticker ${className || ""}`}
+		style={
+			{
+				top,
+				left,
+				right,
+				"--rotation": rotation,
+			} as React.CSSProperties
+		}
+	>
+		{text}
+	</div>
+);
+
+const SkillsMarquee = () => {
+	const skillsWithId = [
+		...skills.map((s) => ({ name: s, id: `1-${s}` })),
+		...skills.map((s) => ({ name: s, id: `2-${s}` })),
+	];
+
+	return (
+		<div className="marquee-container">
+			<div className="marquee-content">
+				{skillsWithId.map((skill) => (
+					<div key={skill.id} className="marquee-item">
+						{skill.name}
+					</div>
+				))}
+			</div>
+		</div>
+	);
+};
+
+const StatusBadge = () => (
+	<div className="status-badge">
+		<div className="status-dot" />
+		Available for new opportunities
+	</div>
+);
+
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(() => {
+		if (typeof window !== "undefined") {
+			const saved = localStorage.getItem("darkMode");
+			return saved ? JSON.parse(saved) : false;
+		}
+		return false;
+	});
 
 	useEffect(() => {
 		const toggleVisibility = () => {
@@ -96,6 +197,18 @@ function App() {
 		return () => window.removeEventListener("scroll", toggleVisibility);
 	}, []);
 
+	useEffect(() => {
+		const root = window.document.documentElement;
+		if (isDarkMode) {
+			root.classList.add("dark");
+		} else {
+			root.classList.remove("dark");
+		}
+		localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+	}, [isDarkMode]);
+
+	const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -108,6 +221,7 @@ function App() {
 			<header className="header">
 				<div className="container header-content">
 					<div
+						className="brand"
 						style={{
 							fontSize: "1.5rem",
 							fontWeight: 900,
@@ -117,32 +231,48 @@ function App() {
 					>
 						VINÍCIUS VARJÃO
 					</div>
-					<nav>
-						<ul className="nav-links">
-							<li>
-								<a href="#work" className="nav-link">
-									Work
-								</a>
-							</li>
-							<li>
-								<a href="#about" className="nav-link">
-									About
-								</a>
-							</li>
-							<li>
-								<a href="#contact" className="nav-link">
-									Contact
-								</a>
-							</li>
-						</ul>
-					</nav>
+					<div className="header-right">
+						<nav>
+							<ul className="nav-links">
+								<li>
+									<a href="#work" className="nav-link">
+										Work
+									</a>
+								</li>
+								<li>
+									<a href="#about" className="nav-link">
+										About
+									</a>
+								</li>
+								<li>
+									<a href="#contact" className="nav-link">
+										Contact
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div className="nav-toggle-container">
+							<button
+								type="button"
+								onClick={toggleDarkMode}
+								className="btn"
+								style={{
+									padding: "0.5rem 1rem",
+									fontSize: "0.80rem",
+								}}
+								aria-label="Toggle Dark Mode"
+							>
+								{isDarkMode ? "☀️ LIGHT" : "🌙 DARK"}
+							</button>
+						</div>
+					</div>
 				</div>
 			</header>
 
 			<main>
 				<section className="hero">
 					<div className="container" style={{ textAlign: "left" }}>
-						<span className="hero-tag">Available for new opportunities</span>
+						<StatusBadge />
 						<h1 className="hero-title">
 							Product <br />
 							Engineer.
@@ -165,8 +295,39 @@ function App() {
 								Get in touch
 							</a>
 						</div>
+
+						<Sticker
+							text="INFRA DRIVEN"
+							top="15%"
+							right="5%"
+							rotation="5deg"
+							className="sticker-1"
+						/>
+						<Sticker
+							text="PRODUCT DRIVEN"
+							top="45%"
+							left="2%"
+							rotation="-8deg"
+							className="sticker-2"
+						/>
+						<Sticker
+							text="UX STRATEGY"
+							top="75%"
+							right="3%"
+							rotation="3deg"
+							className="sticker-3"
+						/>
+						<Sticker
+							text="ACCESSIBLE"
+							top="85%"
+							left="5%"
+							rotation="12deg"
+							className="sticker-4"
+						/>
 					</div>
 				</section>
+
+				<SkillsMarquee />
 
 				<section id="work" className="section">
 					<div className="container">
@@ -241,7 +402,7 @@ function App() {
 						<h2>The Approach</h2>
 						<div
 							style={{
-								background: "#ffffff",
+								background: "var(--bg-primary)",
 								border: "var(--border-main)",
 								boxShadow: "var(--shadow-main)",
 								padding: "2rem",
@@ -284,6 +445,7 @@ function App() {
 								rel="noopener noreferrer"
 								aria-label="Connect with me on LinkedIn (opens in a new tab)"
 							>
+								<LinkedInIcon />
 								LinkedIn
 							</a>
 						</div>
@@ -310,19 +472,13 @@ function App() {
 							</a>
 						</li>
 					</ul>
-					<div
-						style={{
-							marginTop: "2rem",
-							display: "flex",
-							gap: "1.5rem",
-							justifyContent: "center",
-							marginBottom: "2rem",
-						}}
-					>
+					<div className="footer-socials">
 						<a href="https://github.com/pwdbymoral" className="nav-link">
+							<GitHubIcon />
 							GitHub
 						</a>
 						<a href="https://linkedin.com/in/vinmvarjao" className="nav-link">
+							<LinkedInIcon />
 							LinkedIn
 						</a>
 					</div>
