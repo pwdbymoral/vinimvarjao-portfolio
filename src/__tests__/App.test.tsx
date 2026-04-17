@@ -12,8 +12,8 @@ describe("App Component", () => {
 
 	it("contains the hero section with the mission summary", () => {
 		render(<App />);
-		expect(screen.getByText(/UX & QA/i)).toBeInTheDocument();
-		expect(screen.getByText(/Product Engineer/i)).toBeInTheDocument();
+		expect(screen.getByText(/UX and Quality Assurance/i)).toBeInTheDocument();
+		expect(screen.getAllByText(/Product Engineer/i)[0]).toBeInTheDocument();
 	});
 
 	it("renders the 4 selected projects with links", () => {

@@ -13,6 +13,10 @@ export class PortfolioPage extends BasePage {
 	readonly sectionWorks: Locator;
 	readonly sectionAbout: Locator;
 	readonly footer: Locator;
+	readonly darkModeToggle: Locator;
+	readonly statusBadge: Locator;
+	readonly marquee: Locator;
+	readonly stickers: Locator;
 
 	constructor(page: Page) {
 		super(page);
@@ -31,6 +35,10 @@ export class PortfolioPage extends BasePage {
 		this.sectionWorks = page.locator("#work");
 		this.sectionAbout = page.locator("#about");
 		this.footer = page.getByRole("contentinfo");
+		this.darkModeToggle = page.getByRole("button", { name: /DARK|LIGHT/i });
+		this.statusBadge = page.locator(".status-badge");
+		this.marquee = page.locator(".marquee-container");
+		this.stickers = page.locator(".sticker");
 	}
 
 	async goto() {
@@ -47,5 +55,9 @@ export class PortfolioPage extends BasePage {
 
 	async getProjectCount() {
 		return await this.projectCards.count();
+	}
+
+	async toggleDarkMode() {
+		await this.darkModeToggle.click();
 	}
 }
