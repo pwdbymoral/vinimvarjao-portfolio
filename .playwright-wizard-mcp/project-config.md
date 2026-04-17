@@ -7,11 +7,12 @@
 **Database:** None  
 **Build:** Vite 8 (Rolldown)  
 **Monorepo:** No  
-**Styling:** Vanilla CSS (CSS Variables)
+**Styling:** Vanilla CSS (Neo-Brutalism System)
 
 ## Testing Implications
 
 - React 19: Standard rendering, no complex hydration issues for this static wireframe.
 - Vite 8: Uses Rolldown, extremely fast dev server.
-- Biome: Linting and formatting already configured.
+- Biome: Strict linting and formatting configured (Tabs + Double Quotes).
 - Husky: Git hooks configured for linting and build.
+- UI Flavor: Neo-Brutalist (Expect high-contrast borders and bold typography).

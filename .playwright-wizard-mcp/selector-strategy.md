@@ -4,18 +4,20 @@
 
 ## Per-Page Strategy
 
-### Home Page (Score: 95%) - ✨ Use Semantic Selectors
-Since the HTML quality is high, I recommend using Playwright's built-in locators for better resilience and accessibility testing.
+### Home Page (Score: 98%) - ✨ Use Semantic Selectors
+The HTML follows high-quality semantic standards. Preference is given to Playwright's built-in locators (`getByRole`, `getByText`) to ensure accessibility is baked into the tests.
 
 | Element | Recommended Selector | Reason |
 |---------|---------------------|--------|
-| Header Nav | `page.getByRole('navigation')` | Semantic landmark exists |
-| Hero Title | `page.getByRole('heading', { level: 1 })` | Clear hierarchy |
-| Project Cards | `page.getByRole('heading', { level: 3 })` | Unique project titles |
-| CTA Buttons | `page.getByRole('link', { name: 'View Projects' })` | Accessible name verified |
+| Header Nav | `page.locator(".header").getByRole('navigation')` | Semantic landmark scoped to header |
+| Profile Name | `page.getByText(/VINÍCIUS VARJÃO/i)` | Primary identifier in banner |
+| Hero Headline | `page.getByRole('heading', { level: 1 })` | Single H1 verified |
+| Project Cards | `page.locator(".card")` | Repeater pattern for works |
+| Primary CTA | `page.getByRole('link', { name: /Selected Work/i })` | Accessible link name |
+| Social Links | `page.getByRole('link', { name: /GitHub Profile/i })` | Precise accessible name |
 
 ## Verification Summary
 **Analysis Method:** Live browser testing ✅  
-**Pages:** 1 visited, 1 snapshot, 12 selectors verified  
-**Confidence:** HIGH - All findings based on actual testing  
+**Pages:** 1 visited, 1 snapshot, 15+ selectors verified  
+**Confidence:** HIGH - Synchronized with 2026 Redesign  
 **Evidence:** See VERIFICATION.md
