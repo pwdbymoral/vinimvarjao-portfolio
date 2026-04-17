@@ -25,9 +25,10 @@ test.describe("Portfolio Core Functionality", () => {
 	});
 
 	test("availability badge is displayed", async ({ portfolioPage }) => {
-		await expect(
-			portfolioPage.page.getByText("Available for new opportunities"),
-		).toBeVisible();
+		await expect(portfolioPage.statusBadge).toBeVisible();
+		await expect(portfolioPage.statusBadge).toContainText(
+			"Available for new opportunities",
+		);
 	});
 
 	test("view projects button scrolls to work section", async ({
@@ -95,5 +96,36 @@ test.describe("Portfolio Core Functionality", () => {
 				.getByRole("link", { name: /View Source|GitHub/i })
 				.first(),
 		).toBeVisible();
+	});
+});
+
+test.describe("Portfolio Premium Features", () => {
+	test.beforeEach(async ({ portfolioPage }) => {
+		await portfolioPage.goto();
+	});
+
+	test("dark mode toggle changes theme", async ({ portfolioPage }) => {
+		// Default should be light (no .dark class on html)
+		const html = portfolioPage.page.locator("html");
+		await expect(html).not.toHaveClass(/dark/);
+
+		// Click toggle
+		await portfolioPage.darkModeToggle.click();
+		await expect(html).toHaveClass(/dark/);
+		await expect(portfolioPage.darkModeToggle).toContainText(/LIGHT/i);
+
+		// Toggle back
+		await portfolioPage.darkModeToggle.click();
+		await expect(html).not.toHaveClass(/dark/);
+	});
+
+	test("skills marquee is visible", async ({ portfolioPage }) => {
+		await expect(portfolioPage.marquee).toBeVisible();
+		await expect(portfolioPage.marquee).toContainText(/React/i);
+	});
+
+	test("stickers are present", async ({ portfolioPage }) => {
+		const count = await portfolioPage.stickers.count();
+		expect(count).toBeGreaterThanOrEqual(4);
 	});
 });
