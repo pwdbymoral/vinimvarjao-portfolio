@@ -30,8 +30,18 @@ test.describe("Portfolio Education Section", () => {
 			portfolioPage.page.getByText(/Application Delivery & Leadership/i),
 		).toBeVisible();
 
-		// Expect timeline structure
-		const timelineItems = portfolioPage.page.locator(".timeline-item");
-		await expect(timelineItems).toHaveCount(2);
+		// Expect timeline structure within the education section
+		const eduSection = portfolioPage.page.locator("#education");
+		const timelineItems = eduSection.locator(".timeline-item");
+
+		// Verify specific entries exist within the education section
+		await expect(timelineItems.filter({ hasText: "UNINASSAU" })).toBeVisible();
+		await expect(
+			timelineItems.filter({ hasText: "Federal University of Campina Grande" }),
+		).toBeVisible();
+
+		// Narrative check
+		await expect(eduSection).toContainText("Application Delivery & Leadership");
+		await expect(eduSection).toContainText("Academic Foundation");
 	});
 });
