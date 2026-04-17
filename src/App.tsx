@@ -116,6 +116,29 @@ const skills = [
 	"Product Engineering",
 ];
 
+const education = [
+	{
+		id: 1,
+		institution: "UNINASSAU",
+		degree: "B.S. in Systems Analysis and Development",
+		period: "2023 — 2024",
+		status: "Graduated",
+		description:
+			"Spearheaded technical leadership in cross-functional teams and delivered robust, real-world applications using modern Agile methodologies.",
+		narrative: "Application Delivery & Leadership",
+	},
+	{
+		id: 2,
+		institution: "Federal University of Campina Grande (UFCG)",
+		degree: "Computer Science",
+		period: "2019 — 2022",
+		status: "Academic Foundation",
+		description:
+			"Deep-dived into architectural design, matured collaborative engineering, and optimized code efficiency within the Computer Science program.",
+		narrative: "Academic Foundation",
+	},
+];
+
 interface StickerProps {
 	text: string;
 	top?: string;
@@ -237,6 +260,11 @@ function App() {
 								<li>
 									<a href="#work" className="nav-link">
 										Work
+									</a>
+								</li>
+								<li>
+									<a href="#education" className="nav-link">
+										Education
 									</a>
 								</li>
 								<li>
@@ -390,6 +418,45 @@ function App() {
 					</div>
 				</section>
 
+				<section id="education" className="section">
+					<div className="container">
+						<h2>Education & Growth</h2>
+						<div
+							style={{
+								maxWidth: "800px",
+								marginTop: "3rem",
+							}}
+						>
+							{education.map((item) => (
+								<div key={item.id} className="timeline-item">
+									<div className="timeline-date">{item.period}</div>
+									<div
+										className="card-category"
+										style={{ marginBottom: "0.5rem" }}
+									>
+										{item.narrative}
+									</div>
+									<h3 style={{ marginBottom: "0.25rem" }}>
+										{item.institution}
+									</h3>
+									<p
+										style={{
+											fontWeight: 800,
+											fontSize: "1.1rem",
+											marginBottom: "1rem",
+											textTransform: "uppercase",
+											color: "var(--accent-secondary)",
+										}}
+									>
+										{item.degree} • {item.status}
+									</p>
+									<p style={{ fontWeight: 600 }}>{item.description}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</section>
+
 				<section
 					id="about"
 					className="section"
@@ -459,6 +526,11 @@ function App() {
 						<li>
 							<a href="#work" className="nav-link">
 								Work
+							</a>
+						</li>
+						<li>
+							<a href="#education" className="nav-link">
+								Education
 							</a>
 						</li>
 						<li>
