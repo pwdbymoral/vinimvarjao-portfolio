@@ -483,15 +483,15 @@ h3 {
 		grid-area: nav;
 		width: 100%;
 	}
-	.nav-links {
+	.header .nav-links {
 		width: 100%;
 		justify-content: center;
 		padding-top: 1rem;
 		border-top: var(--border-main);
 		gap: 0.75rem;
-		flex-wrap: wrap; /* Ensure items wrap if they really have to, though grid-area: nav nav should help */
+		flex-wrap: wrap; /* Ensure items wrap if they really have to */
 	}
-	.nav-link {
+	.header .nav-link {
 		font-size: 0.85rem;
 		padding: 0.4rem 0.6rem;
 		border: 2px solid #000000;
