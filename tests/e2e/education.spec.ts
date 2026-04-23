@@ -20,7 +20,7 @@ test.describe("Portfolio Education Section", () => {
 		);
 		await expect(ufcg).toBeVisible();
 		await expect(
-			portfolioPage.page.getByText(/Academic Foundation/i),
+			portfolioPage.page.getByText(/Academic Foundation/i).first(),
 		).toBeVisible();
 
 		// Expect UNINASSAU entry
