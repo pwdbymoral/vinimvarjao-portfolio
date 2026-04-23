@@ -19,6 +19,8 @@ This portfolio is built using a futuristic 2026 tech stack, ensuring maximum per
     - **Unit/Component**: [Vitest](https://vitest.dev/)
 - **Workflows**: [Husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) (Enforcing atomic commits and code quality)
 
+- **Automation Memory**: Managed via `.playwright-wizard-mcp/` to ensure persistent UI knowledge for AI and automation.
+
 ---
 
 ## 🛠 Engineering Philosophy (TDD First)
