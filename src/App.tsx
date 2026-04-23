@@ -139,6 +139,36 @@ const education = [
 	},
 ];
 
+const experience = [
+	{
+		id: 1,
+		company: "4GrowthBR",
+		role: "Traffic Team Leader & Software Developer",
+		period: "Aug 2025 — Present",
+		description:
+			"Scaling business results by merging Marketing Intelligence with Software Engineering. Lead technical squads and educational projects.",
+		narrative: "Leadership & Scaling",
+	},
+	{
+		id: 2,
+		company: "4GrowthBR",
+		role: "Traffic Manager & Software Developer",
+		period: "Sept 2024 — Aug 2025",
+		description:
+			"Architected automations (PWA/API) integrating Pipedrive and MetaAds. Taught programming logic to internal teams, fostering technical culture.",
+		narrative: "Automation & Growth",
+	},
+	{
+		id: 3,
+		company: "Uol Compass",
+		role: "Cloud Engineering Intern",
+		period: "2023 — 2024",
+		description:
+			"Strengthened cloud infrastructure and programming fundamentals within a high-performance Scrum team environment.",
+		narrative: "Enterprise Engineering",
+	},
+];
+
 interface StickerProps {
 	text: string;
 	top?: string;
@@ -160,9 +190,9 @@ const Sticker = ({
 		className={`sticker ${className || ""}`}
 		style={
 			{
-				top,
-				left,
-				right,
+				"--top": top,
+				"--left": left,
+				"--right": right,
 				"--rotation": rotation,
 			} as React.CSSProperties
 		}
@@ -263,6 +293,11 @@ function App() {
 									</a>
 								</li>
 								<li>
+									<a href="#experience" className="nav-link">
+										Experience
+									</a>
+								</li>
+								<li>
 									<a href="#education" className="nav-link">
 										Education
 									</a>
@@ -347,8 +382,8 @@ function App() {
 						/>
 						<Sticker
 							text="ACCESSIBLE"
-							top="85%"
-							left="5%"
+							top="92%"
+							left="-2%"
 							rotation="12deg"
 							className="sticker-4"
 						/>
@@ -412,6 +447,43 @@ function App() {
 											</a>
 										)}
 									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</section>
+
+				<section id="experience" className="section">
+					<div className="container">
+						<h2>Professional Experience</h2>
+						<div
+							style={{
+								maxWidth: "800px",
+								marginTop: "3rem",
+							}}
+						>
+							{experience.map((item) => (
+								<div key={item.id} className="timeline-item">
+									<div className="timeline-date">{item.period}</div>
+									<div
+										className="card-category"
+										style={{ marginBottom: "0.5rem" }}
+									>
+										{item.narrative}
+									</div>
+									<h3 style={{ marginBottom: "0.25rem" }}>{item.company}</h3>
+									<p
+										style={{
+											fontWeight: 800,
+											fontSize: "1.1rem",
+											marginBottom: "1rem",
+											textTransform: "uppercase",
+											color: "var(--accent-secondary)",
+										}}
+									>
+										{item.role}
+									</p>
+									<p style={{ fontWeight: 600 }}>{item.description}</p>
 								</div>
 							))}
 						</div>
@@ -526,6 +598,11 @@ function App() {
 						<li>
 							<a href="#work" className="nav-link">
 								Work
+							</a>
+						</li>
+						<li>
+							<a href="#experience" className="nav-link">
+								Experience
 							</a>
 						</li>
 						<li>

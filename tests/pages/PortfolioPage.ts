@@ -17,6 +17,8 @@ export class PortfolioPage extends BasePage {
 	readonly statusBadge: Locator;
 	readonly marquee: Locator;
 	readonly stickers: Locator;
+	readonly navExperience: Locator;
+	readonly sectionExperience: Locator;
 
 	constructor(page: Page) {
 		super(page);
@@ -39,6 +41,10 @@ export class PortfolioPage extends BasePage {
 		this.statusBadge = page.locator(".status-badge");
 		this.marquee = page.locator(".marquee-container");
 		this.stickers = page.locator(".sticker");
+		this.navExperience = page
+			.locator(".header")
+			.getByRole("link", { name: /Experience/i });
+		this.sectionExperience = page.locator("#experience");
 	}
 
 	async goto() {
