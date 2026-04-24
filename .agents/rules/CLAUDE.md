@@ -18,6 +18,7 @@ This file is the **Source of Truth** for all development workflows. It must be u
 - **Dev Server**: `npm run dev`
 - **Production Build**: `npm run build`
 - **Preview Build**: `npm run preview`
+- **Prod Smoke Test**: `npm run test:prod` (Verifies production build)
 
 ### Test (TDD Core)
 
@@ -62,8 +63,8 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 
 ## 🤖 AI Interaction & Living Spec
 
-- **Context-Agnostic**: If you discover a new pattern that works well, update this `CLAUDE.md` immediately.
 - **Implicit Research**: Always run `npm run dev` and `npm run test:e2e` before and after key changes.
+- **Deployment**: Prefer `Dockerfile` multi-stage (Node + Nginx) for VPS/Coolify. Always run `npm run test:prod` before deployment.
 - **Communication**: Be concise, focused, and report failures immediately.
 - **❌ DO NOT**: Use `--no-verify` in any `git commit` or `git push` command. Hooks must always run to ensure quality.
 

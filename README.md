@@ -62,7 +62,31 @@ npm run test:e2e
 
 # Run Vitest Watch
 npm run test:watch
+
+# Run Production Smoke Test (Verifies build artifact)
+npm run test:prod
 ```
+
+---
+
+## 🐳 Docker & Deployment
+
+This portfolio is optimized for **Coolify** (or any VPS) using a multi-stage Docker build.
+
+### Building & Running Locally
+```bash
+# Build the production image
+docker build -t portfolio .
+
+# Run the container
+docker run -p 8080:80 portfolio
+```
+
+### Deployment Strategy
+- **Infrastructure**: [Dockerfile](Dockerfile) + [nginx.conf](nginx.conf)
+- **Engine**: Nginx Alpine (Ultra-lightweight)
+- **Routing**: SPA support enabled (fallback to index.html)
+- **CI/CD**: Always run `npm run test:prod` before deployment to ensure the build artifact is functional.
 
 ---
 

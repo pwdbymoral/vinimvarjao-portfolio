@@ -6,6 +6,7 @@
 **Auth:** None  
 **Database:** None  
 **Build:** Vite 8 (Rolldown)  
+**Deployment:** Docker (Multi-stage Nginx Alpine)  
 **Monorepo:** No  
 **Styling:** Vanilla CSS (Neo-Brutalism System)
 
