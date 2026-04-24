@@ -14,6 +14,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:e2e": "playwright test",
+		"test:prod": "npm run build && TEST_PROD=1 npx playwright test tests/production-smoke.spec.ts",
 		"test:all": "npm run test && npm run test:e2e"
 	},
 	"dependencies": {
