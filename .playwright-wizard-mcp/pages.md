@@ -20,6 +20,8 @@
 | Get in touch | Link "Get in touch" | `getByRole('link', { name: /Get in touch/i })` | ✅ VERIFIED |
 | GitHub Profile | Link "GitHub Profile" | `getByRole('link', { name: /GitHub Profile/i })` | ✅ VERIFIED |
 | LinkedIn Link | Link "LinkedIn" | `getByRole('link', { name: 'LinkedIn' })` | ✅ VERIFIED |
+| Scroll to top | Button "Scroll to top" | `getByRole('button', { name: 'Scroll to top' })` | ✅ VERIFIED |
+
 
 **Score Rationale:**
 - Excellent use of semantic HTML5 landmarks (`banner`, `navigation`, `main`, `contentinfo`).

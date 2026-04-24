@@ -1,11 +1,11 @@
 # Test Plan
 
 **Project:** Portfolio Redesign (Neo-Brutalist)  
-**Total Suites:** 1  
-**Total Tests:** ~15  
-**Progress:** 1/1 suites (100%)
+**Total Suites:** 6  
+**Total Tests:** 48 (Multi-browser)  
+**Progress:** 6/6 suites (100%)
 
-> **Note:** This plan is synchronized with the 2026 Neo-Brutalist redesign.
+> **Note:** This plan is synchronized with the 2026 Neo-Brutalist redesign and the transition to stacked interactive cards.
 
 ---
 
@@ -15,7 +15,7 @@
 **Pages:** Home → Project Grid → Project Links (GitHub/Live)  
 **Why Critical:** Primary purpose of the portfolio.  
 **File:** `tests/e2e/portfolio.spec.ts`  
-**Tests:** 10+
+**Tests:** 12+
 
 **Flow:**
 1. User lands on Hero section (Neo-Brutalist).
@@ -28,18 +28,25 @@
 ## Implementation Status
 
 - [x] **portfolio.spec.ts** - Core functionality & Redesign Verification ✅
-- [x] **content_fixes.spec.ts** - Content accuracy & Dark Mode verification ✅
-- [x] **features.spec.ts** - Additional UI feature verification ✅
+- [x] **education.spec.ts** - Education section & navigation ✅
+- [x] **experience.spec.ts** - Experience section & navigation ✅
+- [x] **mobile-header.spec.ts** - Mobile layout integrity ✅
+- [x] **content_fixes.spec.ts** - Content accuracy & Dark Mode ✅
+- [x] **features.spec.ts** - Premium feature TDD verification ✅
 
 ---
 
 ## Test Coverage Summary
 
-| Feature Area   | Test Suite           | Tests | Priority | Status |
-| -------------- | -------------------- | ----- | -------- | ------ |
-| Portfolio UI   | portfolio.spec.ts    | 12    | P0       | ✅ Done |
-| Content Logic  | content_fixes.spec.ts| 4     | P1       | ✅ Done |
-| **Total**      | **2 suites**         | **16**| **1 P0** | **100%** |
+| Feature Area         | Test Suite             | Tests | Priority | Status |
+| -------------------- | ---------------------- | ----- | -------- | ------ |
+| Core Portfolio UI    | portfolio.spec.ts      | 12    | P0       | ✅ Done |
+| Education Section    | education.spec.ts      | 2     | P1       | ✅ Done |
+| Experience Section   | experience.spec.ts     | 3     | P1       | ✅ Done |
+| Mobile Layout        | mobile-header.spec.ts  | 2     | P1       | ✅ Done |
+| Content & Dark Mode  | content_fixes.spec.ts  | 4     | P2       | ✅ Done |
+| New Features (TDD)   | features.spec.ts       | 1     | P2       | ✅ Done |
+| **Total (per browser)**| **6 suites**           | **24**| **-**    | **100%** |
 
 ---
 
