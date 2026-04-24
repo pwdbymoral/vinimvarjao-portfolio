@@ -35,3 +35,6 @@ coverage/
 
 # AI Agents
 artifacts/
+
+# TanStack Router
+.tanstack/
