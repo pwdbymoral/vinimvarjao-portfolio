@@ -8,14 +8,14 @@ test.describe("Portfolio Experience Section", () => {
 	test("experience section is visible and contains synthesized career history", async ({
 		portfolioPage,
 	}) => {
+		// Scope all content checks to the experience section card
+		const expSection = portfolioPage.sectionExperience;
+
 		// Expect heading
-		const heading = portfolioPage.page.getByRole("heading", {
+		const heading = expSection.getByRole("heading", {
 			name: /Professional Experience|Work History/i,
 		});
 		await expect(heading).toBeVisible();
-
-		// Scope all content checks to the #experience section
-		const expSection = portfolioPage.page.locator("#experience");
 
 		// Check for 4GrowthBR entry (two entries exist within experience section)
 		const fourGrowth = expSection.getByText(/4GrowthBR/i).first();
@@ -45,9 +45,11 @@ test.describe("Portfolio Experience Section", () => {
 		await expect(navLink).toBeVisible();
 		await navLink.click();
 
-		// Check if URL contains #experience or section is in view
-		await expect(portfolioPage.page).toHaveURL(/.*#experience/);
+		// Check if section is in view (navigation now scrolls to #resume container)
 		await expect(portfolioPage.sectionExperience).toBeInViewport();
+
+		// Verify card is active
+		await expect(portfolioPage.sectionExperience).toHaveClass(/is-active/);
 	});
 
 	test("mobile header includes experience link without breaking", async ({

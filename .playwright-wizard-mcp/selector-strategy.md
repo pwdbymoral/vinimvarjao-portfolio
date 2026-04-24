@@ -14,6 +14,7 @@ The HTML follows high-quality semantic standards. Preference is given to Playwri
 | Hero Headline | `page.getByRole('heading', { level: 1 })` | Single H1 verified |
 | Project Cards | `page.locator(".card")` | Repeater pattern for works |
 | Primary CTA | `page.getByRole('link', { name: /Selected Work/i })` | Accessible link name |
+| Resume Cards | `page.locator(".experience-card"), page.locator(".education-card")` | Stacked card interactive components |
 | Social Links | `page.getByRole('link', { name: /GitHub Profile/i })` | Precise accessible name |
 
 ## Verification Summary

@@ -18,7 +18,9 @@ export class PortfolioPage extends BasePage {
 	readonly marquee: Locator;
 	readonly stickers: Locator;
 	readonly navExperience: Locator;
+	readonly navEducation: Locator;
 	readonly sectionExperience: Locator;
+	readonly sectionEducation: Locator;
 
 	constructor(page: Page) {
 		super(page);
@@ -43,8 +45,12 @@ export class PortfolioPage extends BasePage {
 		this.stickers = page.locator(".sticker");
 		this.navExperience = page
 			.locator(".header")
-			.getByRole("link", { name: /Experience/i });
-		this.sectionExperience = page.locator("#experience");
+			.getByRole("button", { name: /Experience/i });
+		this.navEducation = page
+			.locator(".header")
+			.getByRole("button", { name: /Education/i });
+		this.sectionExperience = page.locator(".experience-card");
+		this.sectionEducation = page.locator(".education-card");
 	}
 
 	async goto() {

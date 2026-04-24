@@ -14,6 +14,8 @@
 | Work Link | Link "Work" | `locator(".header").getByRole('link', { name: /Work/i })` | ✅ VERIFIED |
 | About Link | Link "About" | `locator(".header").getByRole('link', { name: /About/i })` | ✅ VERIFIED |
 | Contact Link | Link "Contact" | `locator(".header").getByRole('link', { name: /Contact/i })` | ✅ VERIFIED |
+| Experience | Button "Experience" | `locator(".header").getByRole('button', { name: /Experience/i })` | ✅ VERIFIED |
+| Education | Button "Education" | `locator(".header").getByRole('button', { name: /Education/i })` | ✅ VERIFIED |
 | Selected Work | Link "Selected Work" | `getByRole('link', { name: /Selected Work/i })` | ✅ VERIFIED |
 | Get in touch | Link "Get in touch" | `getByRole('link', { name: /Get in touch/i })` | ✅ VERIFIED |
 | GitHub Profile | Link "GitHub Profile" | `getByRole('link', { name: /GitHub Profile/i })` | ✅ VERIFIED |
