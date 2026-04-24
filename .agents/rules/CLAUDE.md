@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # CLAUDE.md — Living Project Specification
 
 > **Project Identity**: Vinícius Varjão - Professional Portfolio  
