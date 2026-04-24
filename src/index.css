@@ -1,6 +1,3 @@
-
-
-
 :root {
 	--font-main: "Inter", system-ui, -apple-system, sans-serif;
 	--font-mono: "JetBrains Mono", monospace;
@@ -155,6 +152,16 @@ h3 {
 	border: 2px solid #000000;
 }
 
+/* Mobile Menu Button - hidden by default on desktop */
+.mobile-menu-btn {
+	display: none;
+	background: none;
+	border: none;
+	color: var(--text-primary);
+	cursor: pointer;
+	padding: 0.5rem;
+}
+
 /* Hero Section */
 .hero {
 	padding: 4rem 0;
@@ -246,6 +253,7 @@ h3 {
 	padding: 0.25rem 0.5rem;
 	background: var(--accent-primary);
 	border: 2px solid #000000;
+	color: #000000;
 }
 
 /* Buttons */
@@ -272,6 +280,7 @@ h3 {
 
 .btn-primary {
 	background: var(--accent-primary);
+	color: #000000;
 }
 
 .btn-primary:hover {
@@ -287,6 +296,19 @@ h3 {
 	color: #ffffff;
 	text-align: center;
 	border-top: var(--border-main);
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 .footer .nav-links {
@@ -422,7 +444,6 @@ h3 {
 /* Resume Stacked Cards Layout */
 .resume-section {
 	background: var(--bg-secondary);
-	padding-bottom: 8rem;
 }
 
 .stacked-cards-container {
@@ -436,7 +457,7 @@ h3 {
 @media (min-width: 1024px) {
 	.stacked-cards-container {
 		display: block; /* For overlapping effect on desktop */
-		height: 850px; /* Constrain height as requested */
+		min-height: 700px; /* Constrain height as requested but allow growth */
 	}
 
 	.section-card {
@@ -583,10 +604,20 @@ h3 {
 	.nav-toggle-container {
 		grid-area: toggle;
 		justify-self: end;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
 	}
-	nav {
+	.mobile-menu-btn {
+		display: flex;
+	}
+	nav.main-nav {
+		display: none;
 		grid-area: nav;
 		width: 100%;
+	}
+	nav.main-nav.is-open {
+		display: block;
 	}
 	.header .nav-links {
 		width: 100%;

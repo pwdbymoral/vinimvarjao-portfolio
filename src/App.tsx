@@ -229,6 +229,7 @@ const StatusBadge = () => (
 
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [activeCard, setActiveCard] = useState<"exp" | "edu">("exp");
 	const [isDarkMode, setIsDarkMode] = useState(() => {
 		if (typeof window !== "undefined") {
@@ -270,18 +271,27 @@ function App() {
 		});
 	};
 
-	const handleNavClick = (card: "exp" | "edu") => {
+	const handleNavClick = (card: "exp" | "edu", shouldScroll = true) => {
 		setActiveCard(card);
-		const element = document.getElementById("resume");
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
+		setIsMobileMenuOpen(false);
+		if (shouldScroll) {
+			const element = document.getElementById("resume");
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+			}
 		}
 	};
 
-	const handleKeyDown = (e: React.KeyboardEvent, card: "exp" | "edu") => {
+	const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+	const handleKeyDown = (
+		e: React.KeyboardEvent,
+		card: "exp" | "edu",
+		shouldScroll = false,
+	) => {
 		if (e.key === "Enter" || e.key === " ") {
 			e.preventDefault();
-			handleNavClick(card);
+			handleNavClick(card, shouldScroll);
 		}
 	};
 
@@ -301,8 +311,17 @@ function App() {
 						VINÍCIUS VARJÃO
 					</div>
 					<div className="header-right">
-						<nav>
-							<ul className="nav-links">
+						<nav
+							aria-label="Main Navigation"
+							className={`main-nav ${isMobileMenuOpen ? "is-open" : ""}`}
+						>
+							<ul
+								className="nav-links"
+								onClick={closeMobileMenu}
+								onKeyDown={(e) => {
+									if (e.key === "Enter" || e.key === " ") closeMobileMenu();
+								}}
+							>
 								<li>
 									<a href="#work" className="nav-link">
 										Work
@@ -339,6 +358,40 @@ function App() {
 							</ul>
 						</nav>
 						<div className="nav-toggle-container">
+							<button
+								type="button"
+								className="mobile-menu-btn"
+								onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+								aria-label="Toggle Navigation Menu"
+								aria-expanded={isMobileMenuOpen}
+							>
+								<svg
+									viewBox="0 0 24 24"
+									width="24"
+									height="24"
+									stroke="currentColor"
+									strokeWidth="3"
+									fill="none"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									role="img"
+									aria-label="Mobile Menu Icon"
+								>
+									<title>Mobile Menu Icon</title>
+									{isMobileMenuOpen ? (
+										<>
+											<line x1="18" y1="6" x2="6" y2="18" />
+											<line x1="6" y1="6" x2="18" y2="18" />
+										</>
+									) : (
+										<>
+											<line x1="3" y1="12" x2="21" y2="12" />
+											<line x1="3" y1="6" x2="21" y2="6" />
+											<line x1="3" y1="18" x2="21" y2="18" />
+										</>
+									)}
+								</svg>
+							</button>
 							<button
 								type="button"
 								onClick={toggleDarkMode}
@@ -448,10 +501,12 @@ function App() {
 											style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}
 											target="_blank"
 											rel="noopener noreferrer"
-											aria-label={`View Source: ${project.title} code on GitHub (opens in a new tab)`}
 										>
 											<GitHubIcon />
 											View Source
+											<span className="sr-only">
+												{`: ${project.title} code on GitHub (opens in a new tab)`}
+											</span>
 										</a>
 										{project.liveUrl && (
 											<a
@@ -464,10 +519,12 @@ function App() {
 												}}
 												target="_blank"
 												rel="noopener noreferrer"
-												aria-label={`Live Demo: ${project.title} (opens in a new tab)`}
 											>
 												<ExternalIcon />
 												Live Demo
+												<span className="sr-only">
+													{`: ${project.title} (opens in a new tab)`}
+												</span>
 											</a>
 										)}
 									</div>
@@ -484,17 +541,13 @@ function App() {
 						<p style={{ marginBottom: "3rem", fontWeight: 600 }}>
 							A journey of continuous learning and technical leadership.
 						</p>
-						<div
-							className="stacked-cards-container"
-							style={{ height: "700px" }}
-						>
+						<div className="stacked-cards-container">
 							<button
 								type="button"
 								className={`section-card experience-card ${activeCard === "exp" ? "is-active" : ""}`}
-								onClick={() => handleNavClick("exp")}
-								onKeyDown={(e) => handleKeyDown(e, "exp")}
+								onClick={() => handleNavClick("exp", false)}
+								onKeyDown={(e) => handleKeyDown(e, "exp", false)}
 								style={{ cursor: "pointer" }}
-								aria-label="View Professional Experience"
 							>
 								<h2 className="card-heading">Professional Experience</h2>
 								<div className="timeline">
@@ -530,10 +583,9 @@ function App() {
 							<button
 								type="button"
 								className={`section-card education-card ${activeCard === "edu" ? "is-active" : ""}`}
-								onClick={() => handleNavClick("edu")}
-								onKeyDown={(e) => handleKeyDown(e, "edu")}
+								onClick={() => handleNavClick("edu", false)}
+								onKeyDown={(e) => handleKeyDown(e, "edu", false)}
 								style={{ cursor: "pointer" }}
-								aria-label="View Education and Growth"
 							>
 								<h2 className="card-heading">Education & Growth</h2>
 								<div className="timeline">
@@ -612,20 +664,20 @@ function App() {
 								className="btn"
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label="Visit my GitHub profile (opens in a new tab)"
 							>
 								<GitHubIcon />
 								GitHub Profile
+								<span className="sr-only"> (opens in a new tab)</span>
 							</a>
 							<a
 								href="https://linkedin.com/in/vinmvarjao"
 								className="btn"
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label="Connect with me on LinkedIn (opens in a new tab)"
 							>
 								<LinkedInIcon />
 								LinkedIn
+								<span className="sr-only"> (opens in a new tab)</span>
 							</a>
 						</div>
 					</div>
@@ -672,21 +724,15 @@ function App() {
 						</ul>
 					</nav>
 					<div className="footer-socials">
-						<a
-							href="https://github.com/pwdbymoral"
-							className="nav-link"
-							aria-label="GitHub Profile (opens in a new tab)"
-						>
+						<a href="https://github.com/pwdbymoral" className="nav-link">
 							<GitHubIcon />
 							GitHub
+							<span className="sr-only"> (opens in a new tab)</span>
 						</a>
-						<a
-							href="https://linkedin.com/in/vinmvarjao"
-							className="nav-link"
-							aria-label="LinkedIn Profile (opens in a new tab)"
-						>
+						<a href="https://linkedin.com/in/vinmvarjao" className="nav-link">
 							<LinkedInIcon />
 							LinkedIn
+							<span className="sr-only"> (opens in a new tab)</span>
 						</a>
 					</div>
 					<p style={{ fontWeight: 800, textTransform: "uppercase" }}>
