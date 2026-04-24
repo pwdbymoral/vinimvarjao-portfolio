@@ -1,0 +1,115 @@
+{
+	"common": {
+		"brand": "VINÍCIUS VARJÃO",
+		"status_available": "Available for new opportunities"
+	},
+	"nav": {
+		"work": "Work",
+		"experience": "Experience",
+		"education": "Education",
+		"about": "About",
+		"contact": "Contact",
+		"dark_mode": "DARK",
+		"light_mode": "LIGHT",
+		"main_nav_label": "Main Navigation",
+		"toggle_menu_label": "Toggle Navigation Menu"
+	},
+	"hero": {
+		"title_1": "Product",
+		"title_2": "Engineer.",
+		"description": "I solve real problems through technical excellence and business strategy. Expert in the intersection of UX and Quality Assurance.",
+		"cta_work": "Selected Work ↓",
+		"cta_contact": "Get in touch"
+	},
+	"stickers": {
+		"infra": "INFRA DRIVEN",
+		"product": "PRODUCT DRIVEN",
+		"ux": "UX STRATEGY",
+		"business": "BUSINESS ALIGNED"
+	},
+	"work": {
+		"title": "Selected Works",
+		"view_source": "View Source",
+		"live_demo": "Live Demo",
+		"github_sr": ": {{title}} code on GitHub (opens in a new tab)",
+		"demo_sr": ": {{title}} (opens in a new tab)"
+	},
+	"resume": {
+		"title": "Career & Education",
+		"subtitle": "A journey of continuous learning and technical leadership.",
+		"experience_title": "Professional Experience",
+		"education_title": "Education & Growth"
+	},
+	"about": {
+		"title": "The Approach",
+		"content": "I build software that doesn't just work—it scales and solves. By connecting code to strategy and UX, I ensure every line delivers real business value."
+	},
+	"contact": {
+		"title": "Connect",
+		"github": "GitHub Profile",
+		"linkedin": "LinkedIn",
+		"sr_tab": "(opens in a new tab)"
+	},
+	"footer": {
+		"copy": "© 2026 Developed with Product Engineering mindset"
+	},
+	"projects": {
+		"dindinho": {
+			"title": "Dindinho",
+			"description": "Full-stack PWA for financial organization, featuring shared expenses and URL-based state synchronization for collaboration."
+		},
+		"checkfacil": {
+			"title": "CheckFacil",
+			"description": "Event management PWA with real-time check-in/out and a scalable monorepo architecture for event staff."
+		},
+		"lojinho": {
+			"title": "Lojinho do Tatu",
+			"description": "Full-stack e-commerce platform focused on server-side rendering, modern UI patterns, and Storybook documentation."
+		},
+		"portfolio": {
+			"title": "vinimvarjao-portfolio",
+			"description": "Premium developer portfolio built with a focus on TDD, extreme code quality, and automated testing pipelines."
+		}
+	},
+	"education": {
+		"uninassau": {
+			"period": "2023 — 2024",
+			"narrative": "Application Delivery & Leadership",
+			"institution": "UNINASSAU",
+			"degree": "B.S. in Systems Analysis and Development",
+			"status": "Graduated",
+			"description": "Spearheaded technical leadership in cross-functional teams and delivered robust, real-world applications using modern Agile methodologies."
+		},
+		"ufcg": {
+			"period": "2019 — 2022",
+			"narrative": "Academic Foundation",
+			"institution": "Federal University of Campina Grande (UFCG)",
+			"degree": "Computer Science",
+			"status": "Academic Foundation",
+			"description": "Deep-dived into architectural design, matured collaborative engineering, and optimized code efficiency within the Computer Science program."
+		}
+	},
+	"experience": {
+		"growth_lead": {
+			"period": "Aug 2025 — Present",
+			"narrative": "Leadership, Systems & Growth",
+			"company": "4GrowthBR",
+			"role": "Traffic Team Leader & Software Engineer",
+			"description": "Lead, train, and supervise junior traffic managers while designing software solutions that improve campaign execution, CRM integrations, reporting, client workflows, and operational efficiency."
+		},
+		"growth_dev": {
+			"period": "Sept 2024 — Aug 2025",
+			"narrative": "Marketing Performance & Automation",
+			"company": "4GrowthBR",
+			"role": "Traffic Manager & Software Developer",
+			"description": "Managed paid media campaigns while building PWAs, APIs, automations, and integrations between traffic platforms, CRMs, spreadsheets, and internal workflows to improve performance and scalability."
+		},
+		"compass": {
+			"period": "2023 — 2024",
+			"narrative": "Cloud & Data Foundations",
+			"company": "Uol Compass",
+			"role": "Cloud Engineering Intern",
+			"description": "Reinforced and applied knowledge in data analysis, Python, AWS Lambda, cloud computing, and agile software development inside a Scrum-based enterprise engineering team."
+		}
+	}
+}

@@ -1,0 +1,115 @@
+{
+	"common": {
+		"brand": "VINÍCIUS VARJÃO",
+		"status_available": "Disponível para novas oportunidades"
+	},
+	"nav": {
+		"work": "Projetos",
+		"experience": "Experiência",
+		"education": "Formação",
+		"about": "Sobre",
+		"contact": "Contato",
+		"dark_mode": "DARK",
+		"light_mode": "LIGHT",
+		"main_nav_label": "Navegação Principal",
+		"toggle_menu_label": "Alternar Menu de Navegação"
+	},
+	"hero": {
+		"title_1": "Engenheiro de",
+		"title_2": "Produto.",
+		"description": "Resolvo problemas reais através de excelência técnica e estratégia de negócio. Especialista na intersecção entre UX e Quality Assurance.",
+		"cta_work": "Projetos Selecionados ↓",
+		"cta_contact": "Entrar em contato"
+	},
+	"stickers": {
+		"infra": "FOCO EM INFRA",
+		"product": "FOCO EM PRODUTO",
+		"ux": "ESTRATÉGIA UX",
+		"business": "ALINHADO AO NEGÓCIO"
+	},
+	"work": {
+		"title": "Projetos Selecionados",
+		"view_source": "Ver Código",
+		"live_demo": "Demo ao Vivo",
+		"github_sr": ": código de {{title}} no GitHub (abre em nova aba)",
+		"demo_sr": ": {{title}} (abre em nova aba)"
+	},
+	"resume": {
+		"title": "Carreira & Formação",
+		"subtitle": "Uma jornada de aprendizado contínuo e liderança técnica.",
+		"experience_title": "Experiência Profissional",
+		"education_title": "Educação & Crescimento"
+	},
+	"about": {
+		"title": "A Abordagem",
+		"content": "Construo software que não apenas funciona — ele escala e resolve. Conectando código à estratégia e UX, garanto que cada linha entregue valor real ao negócio."
+	},
+	"contact": {
+		"title": "Conectar",
+		"github": "Perfil GitHub",
+		"linkedin": "LinkedIn",
+		"sr_tab": "(abre em nova aba)"
+	},
+	"footer": {
+		"copy": "© 2026 Desenvolvido com mentalidade de Engenharia de Produto"
+	},
+	"projects": {
+		"dindinho": {
+			"title": "Dindinho",
+			"description": "PWA Full-stack para organização financeira, com despesas compartilhadas e sincronização de estado via URL para colaboração."
+		},
+		"checkfacil": {
+			"title": "CheckFacil",
+			"description": "PWA de gerenciamento de eventos com check-in/out em tempo real e arquitetura monorepo escalável."
+		},
+		"lojinho": {
+			"title": "Lojinho do Tatu",
+			"description": "Plataforma de e-commerce full-stack focada em renderização no servidor, padrões modernos de UI e documentação com Storybook."
+		},
+		"portfolio": {
+			"title": "vinimvarjao-portfolio",
+			"description": "Portfólio premium de desenvolvedor focado em TDD, qualidade extrema de código e pipelines de testes automatizados."
+		}
+	},
+	"education": {
+		"uninassau": {
+			"period": "2023 — 2024",
+			"narrative": "Entrega de Aplicações & Liderança",
+			"institution": "UNINASSAU",
+			"degree": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+			"status": "Graduado",
+			"description": "Liderança técnica em equipes multidisciplinares e entrega de aplicações robustas do mundo real usando metodologias ágeis modernas."
+		},
+		"ufcg": {
+			"period": "2019 — 2022",
+			"narrative": "Fundação Acadêmica",
+			"institution": "Universidade Federal de Campina Grande (UFCG)",
+			"degree": "Ciência da Computação",
+			"status": "Fundação Acadêmica",
+			"description": "Aprofundamento em design arquitetural, amadurecimento em engenharia colaborativa e otimização de eficiência de código no programa de Ciência da Computação."
+		}
+	},
+	"experience": {
+		"growth_lead": {
+			"period": "Ago 2025 — Presente",
+			"narrative": "Liderança, Sistemas & Crescimento",
+			"company": "4GrowthBR",
+			"role": "Líder de Equipe de Tráfego & Engenheiro de Software",
+			"description": "Liderança, treinamento e supervisão de gestores de tráfego juniores, enquanto desenho soluções de software que melhoram a execução de campanhas, integrações de CRM, relatórios, fluxos de trabalho de clientes e eficiência operacional."
+		},
+		"growth_dev": {
+			"period": "Set 2024 — Ago 2025",
+			"narrative": "Performance de Marketing & Automação",
+			"company": "4GrowthBR",
+			"role": "Gestor de Tráfego & Desenvolvedor de Software",
+			"description": "Gerenciamento de campanhas de mídia paga enquanto construía PWAs, APIs, automações e integrações entre plataformas de tráfego, CRMs, planilhas e fluxos de trabalho internos para melhorar a performance e escalabilidade."
+		},
+		"compass": {
+			"period": "2023 — 2024",
+			"narrative": "Fundamentos de Nuvem & Dados",
+			"company": "Uol Compass",
+			"role": "Estagiário de Engenharia de Nuvem",
+			"description": "Reforço e aplicação de conhecimentos em análise de dados, Python, AWS Lambda, computação em nuvem e desenvolvimento ágil de software dentro de uma equipe de engenharia empresarial baseada em Scrum."
+		}
+	}
+}
