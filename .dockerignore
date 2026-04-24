@@ -1,0 +1,13 @@
+node_modules
+dist
+test-results
+playwright-report
+lighthouse-report
+.git
+.agents
+.gemini
+.husky
+*.log
+.DS_Store
+tests
+coverage
