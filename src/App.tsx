@@ -108,12 +108,10 @@ const skills = [
 	"Node.js",
 	"Playwright",
 	"Vitest",
+	"Prisma",
 	"PostgreSQL",
 	"MySQL",
 	"Docker",
-	"UX Strategy",
-	"TDD",
-	"Product Engineering",
 ];
 
 const education = [
@@ -458,7 +456,7 @@ function App() {
 							className="sticker-3"
 						/>
 						<Sticker
-							text="ACCESSIBLE"
+							text="BUSINESS ALIGNED"
 							top="92%"
 							left="-2%"
 							rotation="12deg"
