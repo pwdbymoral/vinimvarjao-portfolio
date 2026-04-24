@@ -31,3 +31,6 @@ results.xml
 
 # Vitest
 coverage/
+
+# AI Agents
+artifacts/
