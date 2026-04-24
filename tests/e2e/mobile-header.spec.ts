@@ -12,34 +12,27 @@ test.describe("Mobile Header Layout Integrity", () => {
 		expect(headerBox?.width).toBeLessThanOrEqual(375);
 	});
 
-	test("nav items and toggle should be positioned correctly (Option 1 check)", async ({
-		page,
-	}) => {
+	test("mobile menu toggles navigation links", async ({ page }) => {
 		await page.goto("http://localhost:5173/");
 
-		const brand = page.locator(".brand");
-		const toggle = page.locator(".nav-toggle-container");
-		const nav = page.locator("header nav");
+		// The header navigation should have an accessible name
+		const mainNav = page.getByRole("navigation", { name: "Main Navigation" });
+		const menuBtn = page.getByRole("button", {
+			name: "Toggle Navigation Menu",
+		});
 
-		const brandBox = await brand.boundingBox();
-		const toggleBox = await toggle.boundingBox();
-		const navBox = await nav.boundingBox();
+		// Menu button should be visible on mobile
+		await expect(menuBtn).toBeVisible();
 
-		if (brandBox && toggleBox && navBox) {
-			// In the problematic layout, nav and toggle are side-by-side but crowded.
-			// In Option 1, Toggle should be vertically aligned with Brand,
-			// and Nav should be below them.
+		// Nav should be hidden initially
+		await expect(mainNav).not.toBeVisible();
 
-			// This test is designed to FAIL before implementation of Option 1
-			// because currently Nav and Toggle are side-by-side in .header-right
+		// Click to open
+		await menuBtn.click();
+		await expect(mainNav).toBeVisible();
 
-			// Expected for Option 1:
-			// Toggle Y should be similar to Brand Y
-			// Nav Y should be GREATER than Brand Y + height
-			expect(navBox.y).toBeGreaterThan(brandBox.y + brandBox.height / 2);
-
-			// Brand and Toggle should be on the same "row" (visually)
-			expect(Math.abs(brandBox.y - toggleBox.y)).toBeLessThan(20);
-		}
+		// Click to close
+		await menuBtn.click();
+		await expect(mainNav).not.toBeVisible();
 	});
 });

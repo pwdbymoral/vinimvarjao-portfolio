@@ -60,6 +60,12 @@ test.describe("Portfolio Experience Section", () => {
 		// Set viewport to mobile
 		await portfolioPage.page.setViewportSize({ width: 375, height: 667 });
 
+		const menuBtn = portfolioPage.page.getByRole("button", {
+			name: "Toggle Navigation Menu",
+		});
+		await expect(menuBtn).toBeVisible();
+		await menuBtn.click();
+
 		const navLink = portfolioPage.navExperience;
 		await expect(navLink).toBeVisible();
 
