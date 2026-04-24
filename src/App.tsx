@@ -229,6 +229,7 @@ const StatusBadge = () => (
 
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
+	const [activeCard, setActiveCard] = useState<"exp" | "edu">("exp");
 	const [isDarkMode, setIsDarkMode] = useState(() => {
 		if (typeof window !== "undefined") {
 			const saved = localStorage.getItem("darkMode");
@@ -269,6 +270,21 @@ function App() {
 		});
 	};
 
+	const handleNavClick = (card: "exp" | "edu") => {
+		setActiveCard(card);
+		const element = document.getElementById("resume");
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
+	const handleKeyDown = (e: React.KeyboardEvent, card: "exp" | "edu") => {
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault();
+			handleNavClick(card);
+		}
+	};
+
 	return (
 		<>
 			<header className="header">
@@ -293,14 +309,22 @@ function App() {
 									</a>
 								</li>
 								<li>
-									<a href="#experience" className="nav-link">
+									<button
+										type="button"
+										onClick={() => handleNavClick("exp")}
+										className="nav-link"
+									>
 										Experience
-									</a>
+									</button>
 								</li>
 								<li>
-									<a href="#education" className="nav-link">
+									<button
+										type="button"
+										onClick={() => handleNavClick("edu")}
+										className="nav-link"
+									>
 										Education
-									</a>
+									</button>
 								</li>
 								<li>
 									<a href="#about" className="nav-link">
@@ -453,78 +477,94 @@ function App() {
 					</div>
 				</section>
 
-				<section id="experience" className="section">
+				{/* CAREER & EDUCATION SECTION */}
+				<section id="resume" className="section resume-section">
 					<div className="container">
-						<h2>Professional Experience</h2>
+						<h2 style={{ marginBottom: "1rem" }}>Career & Education</h2>
+						<p style={{ marginBottom: "3rem", fontWeight: 600 }}>
+							A journey of continuous learning and technical leadership.
+						</p>
 						<div
-							style={{
-								maxWidth: "800px",
-								marginTop: "3rem",
-							}}
+							className="stacked-cards-container"
+							style={{ height: "700px" }}
 						>
-							{experience.map((item) => (
-								<div key={item.id} className="timeline-item">
-									<div className="timeline-date">{item.period}</div>
-									<div
-										className="card-category"
-										style={{ marginBottom: "0.5rem" }}
-									>
-										{item.narrative}
-									</div>
-									<h3 style={{ marginBottom: "0.25rem" }}>{item.company}</h3>
-									<p
-										style={{
-											fontWeight: 800,
-											fontSize: "1.1rem",
-											marginBottom: "1rem",
-											textTransform: "uppercase",
-											color: "var(--accent-secondary)",
-										}}
-									>
-										{item.role}
-									</p>
-									<p style={{ fontWeight: 600 }}>{item.description}</p>
+							<button
+								type="button"
+								className={`section-card experience-card ${activeCard === "exp" ? "is-active" : ""}`}
+								onClick={() => handleNavClick("exp")}
+								onKeyDown={(e) => handleKeyDown(e, "exp")}
+								style={{ cursor: "pointer" }}
+								aria-label="View Professional Experience"
+							>
+								<h2 className="card-heading">Professional Experience</h2>
+								<div className="timeline">
+									{experience.map((item) => (
+										<div key={item.id} className="timeline-item">
+											<div className="timeline-date">{item.period}</div>
+											<div
+												className="card-category"
+												style={{ marginBottom: "0.5rem" }}
+											>
+												{item.narrative}
+											</div>
+											<h3 style={{ marginBottom: "0.25rem" }}>
+												{item.company}
+											</h3>
+											<p
+												style={{
+													fontWeight: 800,
+													fontSize: "1.1rem",
+													marginBottom: "1rem",
+													textTransform: "uppercase",
+													color: "var(--accent-secondary)",
+												}}
+											>
+												{item.role}
+											</p>
+											<p style={{ fontWeight: 600 }}>{item.description}</p>
+										</div>
+									))}
 								</div>
-							))}
-						</div>
-					</div>
-				</section>
+							</button>
 
-				<section id="education" className="section">
-					<div className="container">
-						<h2>Education & Growth</h2>
-						<div
-							style={{
-								maxWidth: "800px",
-								marginTop: "3rem",
-							}}
-						>
-							{education.map((item) => (
-								<div key={item.id} className="timeline-item">
-									<div className="timeline-date">{item.period}</div>
-									<div
-										className="card-category"
-										style={{ marginBottom: "0.5rem" }}
-									>
-										{item.narrative}
-									</div>
-									<h3 style={{ marginBottom: "0.25rem" }}>
-										{item.institution}
-									</h3>
-									<p
-										style={{
-											fontWeight: 800,
-											fontSize: "1.1rem",
-											marginBottom: "1rem",
-											textTransform: "uppercase",
-											color: "var(--accent-secondary)",
-										}}
-									>
-										{item.degree} • {item.status}
-									</p>
-									<p style={{ fontWeight: 600 }}>{item.description}</p>
+							<button
+								type="button"
+								className={`section-card education-card ${activeCard === "edu" ? "is-active" : ""}`}
+								onClick={() => handleNavClick("edu")}
+								onKeyDown={(e) => handleKeyDown(e, "edu")}
+								style={{ cursor: "pointer" }}
+								aria-label="View Education and Growth"
+							>
+								<h2 className="card-heading">Education & Growth</h2>
+								<div className="timeline">
+									{education.map((item) => (
+										<div key={item.id} className="timeline-item">
+											<div className="timeline-date">{item.period}</div>
+											<div
+												className="card-category"
+												style={{ marginBottom: "0.5rem" }}
+											>
+												{item.narrative}
+											</div>
+											<h3 style={{ marginBottom: "0.25rem" }}>
+												{item.institution}
+											</h3>
+											<p
+												style={{
+													fontWeight: 800,
+													fontSize: "1.1rem",
+													marginBottom: "1rem",
+													textTransform: "uppercase",
+													color: "var(--accent-secondary)",
+												}}
+											>
+												{item.degree} • {item.status}
+											</p>
+											<p style={{ fontWeight: 600 }}>{item.description}</p>
+										</div>
+									))}
 								</div>
-							))}
+							</button>
 						</div>
 					</div>
 				</section>
@@ -601,14 +641,22 @@ function App() {
 							</a>
 						</li>
 						<li>
-							<a href="#experience" className="nav-link">
+							<button
+								type="button"
+								onClick={() => handleNavClick("exp")}
+								className="nav-link"
+							>
 								Experience
-							</a>
+							</button>
 						</li>
 						<li>
-							<a href="#education" className="nav-link">
+							<button
+								type="button"
+								onClick={() => handleNavClick("edu")}
+								className="nav-link"
+							>
 								Education
-							</a>
+							</button>
 						</li>
 						<li>
 							<a href="#about" className="nav-link">
