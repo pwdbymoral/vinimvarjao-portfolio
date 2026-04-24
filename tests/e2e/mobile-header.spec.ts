@@ -19,7 +19,7 @@ test.describe("Mobile Header Layout Integrity", () => {
 
 		const brand = page.locator(".brand");
 		const toggle = page.locator(".nav-toggle-container");
-		const nav = page.locator("nav");
+		const nav = page.locator("header nav");
 
 		const brandBox = await brand.boundingBox();
 		const toggleBox = await toggle.boundingBox();

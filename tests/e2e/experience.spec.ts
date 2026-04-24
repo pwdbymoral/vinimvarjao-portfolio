@@ -24,9 +24,9 @@ test.describe("Portfolio Experience Section", () => {
 		// Check for leadership role
 		await expect(expSection.getByText(/Traffic Team Leader/i)).toBeVisible();
 
-		// Check for software development focus (both 4GrowthBR roles contain this)
+		// Check for software engineering focus
 		await expect(
-			expSection.getByText(/Software Developer/i).first(),
+			expSection.getByText(/Software Engineer/i).first(),
 		).toBeVisible();
 
 		// Check for Uol Compass entry
@@ -35,9 +35,11 @@ test.describe("Portfolio Experience Section", () => {
 			expSection.getByText(/Cloud Engineering Intern/i),
 		).toBeVisible();
 
-		// Check for automation keywords (scoped to experience section)
-		await expect(expSection.getByText(/PWA/i).first()).toBeVisible();
-		await expect(expSection.getByText(/Pipedrive/i)).toBeVisible();
+		// Check for new narrative keywords (scoped to experience section)
+		await expect(
+			expSection.getByText(/CRM integrations/i).first(),
+		).toBeVisible();
+		await expect(expSection.getByText(/AWS Lambda/i)).toBeVisible();
 	});
 
 	test("navigation link for experience works", async ({ portfolioPage }) => {

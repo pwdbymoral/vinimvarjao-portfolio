@@ -143,11 +143,11 @@ const experience = [
 	{
 		id: 1,
 		company: "4GrowthBR",
-		role: "Traffic Team Leader & Software Developer",
+		role: "Traffic Team Leader & Software Engineer",
 		period: "Aug 2025 — Present",
 		description:
-			"Scaling business results by merging Marketing Intelligence with Software Engineering. Lead technical squads and educational projects.",
-		narrative: "Leadership & Scaling",
+			"Lead, train, and supervise junior traffic managers while designing software solutions that improve campaign execution, CRM integrations, reporting, client workflows, and operational efficiency.",
+		narrative: "Leadership, Systems & Growth",
 	},
 	{
 		id: 2,
@@ -155,8 +155,8 @@ const experience = [
 		role: "Traffic Manager & Software Developer",
 		period: "Sept 2024 — Aug 2025",
 		description:
-			"Architected automations (PWA/API) integrating Pipedrive and MetaAds. Taught programming logic to internal teams, fostering technical culture.",
-		narrative: "Automation & Growth",
+			"Managed paid media campaigns while building PWAs, APIs, automations, and integrations between traffic platforms, CRMs, spreadsheets, and internal workflows to improve performance and scalability.",
+		narrative: "Marketing Performance & Automation",
 	},
 	{
 		id: 3,
@@ -164,8 +164,8 @@ const experience = [
 		role: "Cloud Engineering Intern",
 		period: "2023 — 2024",
 		description:
-			"Strengthened cloud infrastructure and programming fundamentals within a high-performance Scrum team environment.",
-		narrative: "Enterprise Engineering",
+			"Reinforced and applied knowledge in data analysis, Python, AWS Lambda, cloud computing, and agile software development inside a Scrum-based enterprise engineering team.",
+		narrative: "Cloud & Data Foundations",
 	},
 ];
 
@@ -448,7 +448,7 @@ function App() {
 											style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}
 											target="_blank"
 											rel="noopener noreferrer"
-											aria-label={`View source code for ${project.title} on GitHub (opens in a new tab)`}
+											aria-label={`View Source: ${project.title} code on GitHub (opens in a new tab)`}
 										>
 											<GitHubIcon />
 											View Source
@@ -464,7 +464,7 @@ function App() {
 												}}
 												target="_blank"
 												rel="noopener noreferrer"
-												aria-label={`View live demo of ${project.title} (opens in a new tab)`}
+												aria-label={`Live Demo: ${project.title} (opens in a new tab)`}
 											>
 												<ExternalIcon />
 												Live Demo
@@ -634,47 +634,57 @@ function App() {
 
 			<footer className="footer">
 				<div className="container">
-					<ul className="nav-links">
-						<li>
-							<a href="#work" className="nav-link">
-								Work
-							</a>
-						</li>
-						<li>
-							<button
-								type="button"
-								onClick={() => handleNavClick("exp")}
-								className="nav-link"
-							>
-								Experience
-							</button>
-						</li>
-						<li>
-							<button
-								type="button"
-								onClick={() => handleNavClick("edu")}
-								className="nav-link"
-							>
-								Education
-							</button>
-						</li>
-						<li>
-							<a href="#about" className="nav-link">
-								About
-							</a>
-						</li>
-						<li>
-							<a href="#contact" className="nav-link">
-								Contact
-							</a>
-						</li>
-					</ul>
+					<nav className="footer-nav" aria-label="Footer Navigation">
+						<ul className="nav-links">
+							<li>
+								<a href="#work" className="nav-link">
+									Work
+								</a>
+							</li>
+							<li>
+								<button
+									type="button"
+									onClick={() => handleNavClick("exp")}
+									className="nav-link"
+								>
+									Experience
+								</button>
+							</li>
+							<li>
+								<button
+									type="button"
+									onClick={() => handleNavClick("edu")}
+									className="nav-link"
+								>
+									Education
+								</button>
+							</li>
+							<li>
+								<a href="#about" className="nav-link">
+									About
+								</a>
+							</li>
+							<li>
+								<a href="#contact" className="nav-link">
+									Contact
+								</a>
+							</li>
+						</ul>
+					</nav>
 					<div className="footer-socials">
-						<a href="https://github.com/pwdbymoral" className="nav-link">
+						<a
+							href="https://github.com/pwdbymoral"
+							className="nav-link"
+							aria-label="GitHub Profile (opens in a new tab)"
+						>
 							<GitHubIcon />
 							GitHub
 						</a>
-						<a href="https://linkedin.com/in/vinmvarjao" className="nav-link">
+						<a
+							href="https://linkedin.com/in/vinmvarjao"
+							className="nav-link"
+							aria-label="LinkedIn Profile (opens in a new tab)"
+						>
 							<LinkedInIcon />
 							LinkedIn
 						</a>
