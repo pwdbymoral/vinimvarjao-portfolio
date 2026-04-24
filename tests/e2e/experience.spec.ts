@@ -62,6 +62,6 @@ test.describe("Portfolio Experience Section", () => {
 		// Check if navigation is still functional and visible
 		const boundingBox = await navLink.boundingBox();
 		expect(boundingBox).not.toBeNull();
-		expect(boundingBox!.width).toBeGreaterThan(0);
+		expect(boundingBox?.width).toBeGreaterThan(0);
 	});
 });

@@ -8,7 +8,6 @@ test.describe("Mobile Header Layout Integrity", () => {
 
 		const header = page.locator(".header");
 		const headerBox = await header.boundingBox();
-		const bodyBox = await page.locator("body").boundingBox();
 
 		expect(headerBox?.width).toBeLessThanOrEqual(375);
 	});
