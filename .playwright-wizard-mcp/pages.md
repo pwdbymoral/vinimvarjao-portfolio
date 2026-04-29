@@ -21,6 +21,8 @@
 | GitHub Profile | Link "GitHub Profile" | `getByRole('link', { name: /GitHub Profile/i })` | ✅ VERIFIED |
 | LinkedIn Link | Link "LinkedIn" | `getByRole('link', { name: 'LinkedIn' })` | ✅ VERIFIED |
 | Scroll to top | Button "Scroll to top" | `getByRole('button', { name: 'Scroll to top' })` | ✅ VERIFIED |
+| Language Switch | Button "Change Language" | `getByRole('button', { name: /PT\|EN/i })` | ✅ VERIFIED |
+| Theme Toggle | Button "Toggle Dark Mode" | `getByRole('button', { name: /Toggle Dark Mode/i })` | ✅ VERIFIED |
 
 
 **Score Rationale:**

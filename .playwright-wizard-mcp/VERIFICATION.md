@@ -19,7 +19,7 @@
 
 | Page | URL | Snapshot Taken | Selectors Verified |
 |------|-----|----------------|-------------------|
-| Home | / | ✅ Yes | ✅ Yes (English) |
+| Home | /en | ✅ Yes | ✅ Yes (English/Portuguese) |
 
 ## Evidence Log
 
