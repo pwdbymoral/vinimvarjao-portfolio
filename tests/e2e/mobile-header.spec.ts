@@ -4,7 +4,7 @@ test.describe("Mobile Header Layout Integrity", () => {
 	test.use({ viewport: { width: 375, height: 667 } }); // iPhone SE size
 
 	test("header elements should not exceed viewport width", async ({ page }) => {
-		await page.goto("http://localhost:5173/");
+		await page.goto("/en");
 
 		const header = page.locator(".header");
 		const headerBox = await header.boundingBox();
@@ -13,7 +13,7 @@ test.describe("Mobile Header Layout Integrity", () => {
 	});
 
 	test("mobile menu toggles navigation links", async ({ page }) => {
-		await page.goto("http://localhost:5173/");
+		await page.goto("/en");
 
 		// The header navigation should have an accessible name
 		const mainNav = page.getByRole("navigation", { name: "Main Navigation" });

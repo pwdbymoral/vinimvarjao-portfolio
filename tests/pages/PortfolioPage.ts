@@ -54,7 +54,7 @@ export class PortfolioPage extends BasePage {
 	}
 
 	async goto() {
-		await super.goto("/");
+		await super.goto("/en");
 	}
 
 	async clickWork() {

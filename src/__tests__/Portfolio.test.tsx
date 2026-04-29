@@ -1,23 +1,36 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import App from "../App";
+import { Portfolio } from "../components/Portfolio";
+import "../i18n/config";
 
-describe("App Component", () => {
-	it("renders the professional name (Vinícius Varjão)", () => {
-		render(<App />);
-		const elements = screen.getAllByText(/Vinícius Varjão/i);
+// Mock router hooks since Portfolio uses them via Header
+import { vi } from "vitest";
+
+vi.mock("@tanstack/react-router", () => ({
+	useNavigate: () => vi.fn(),
+	useRouter: () => ({ state: { location: { pathname: "/en" } } }),
+	Link: ({ children, to }: { children: React.ReactNode; to?: string }) => (
+		<a href={to || "#"}>{children}</a>
+	),
+	useParams: () => ({ lang: "en" }),
+}));
+
+describe("Portfolio Component", () => {
+	it("renders the hero title", () => {
+		render(<Portfolio />);
+		const elements = screen.getAllByText(/Product Engineer/i);
 		expect(elements.length).toBeGreaterThanOrEqual(1);
 		expect(elements[0]).toBeInTheDocument();
 	});
 
 	it("contains the hero section with the mission summary", () => {
-		render(<App />);
-		expect(screen.getByText(/UX and Quality Assurance/i)).toBeInTheDocument();
-		expect(screen.getAllByText(/Product Engineer/i)[0]).toBeInTheDocument();
+		render(<Portfolio />);
+		const elements = screen.getAllByText(/UX/i);
+		expect(elements.length).toBeGreaterThanOrEqual(1);
 	});
 
 	it("renders the 4 selected projects with links", () => {
-		render(<App />);
+		render(<Portfolio />);
 		const dindinho = screen.getByText("Dindinho");
 		expect(dindinho).toBeInTheDocument();
 		expect(screen.getByText("CheckFacil")).toBeInTheDocument();

@@ -47,6 +47,11 @@ test.describe("Accessibility Audit", () => {
 
 		await page.keyboard.press("Tab");
 		await expect(
+			page.getByRole("button", { name: "Change Language" }),
+		).toBeFocused();
+
+		await page.keyboard.press("Tab");
+		await expect(
 			page.getByRole("button", { name: /LIGHT|DARK/i }),
 		).toBeFocused();
 	});
