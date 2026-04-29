@@ -63,6 +63,47 @@ body::before {
 	z-index: 9999;
 }
 
+/* ------------------------
+   Custom Neo-Brutalist Cursors
+   ------------------------ */
+body {
+	cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23000000'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23ffffff' stroke='%23000000' stroke-width='2' stroke-linejoin='round'/></svg>")
+		4 4,
+		auto;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23000000'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23facc15' stroke='%23000000' stroke-width='2' stroke-linejoin='round'/></svg>")
+		4 4,
+		pointer !important;
+}
+
+.dark {
+	cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23ffffff'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23000000' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/></svg>")
+		4 4,
+		auto;
+}
+
+.dark a,
+.dark button,
+.dark [role="button"],
+.dark input[type="submit"],
+.dark input[type="button"],
+.dark input[type="reset"] {
+	cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23ffffff'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23a855f7' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/></svg>")
+		4 4,
+		pointer !important;
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
@@ -122,7 +163,20 @@ h3 {
 .header-right {
 	display: flex;
 	align-items: center;
-	gap: 1.5rem;
+	gap: 2rem;
+}
+
+.brand {
+	font-weight: 900;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	color: var(--text-primary);
+}
+
+.header-actions {
+	display: flex;
+	gap: 1rem;
 }
 
 .nav-links {
@@ -276,6 +330,8 @@ h3 {
 	background: var(--accent-primary);
 	transform: translate(-0.25rem, -0.25rem);
 	box-shadow: var(--shadow-hover);
+	z-index: 10; /* Ensure shadow doesn't overlap other buttons */
+	position: relative;
 }
 
 .btn-primary {
@@ -286,6 +342,23 @@ h3 {
 .btn-primary:hover {
 	background: #000000;
 	color: #ffffff;
+}
+
+.header .lang-switch {
+	padding: 0.5rem 1rem;
+	font-size: 0.8rem;
+	background: var(--bg-secondary);
+	min-width: 5rem;
+	justify-content: center;
+}
+
+.lang-switch:hover {
+	background: var(--accent-secondary);
+	color: #ffffff;
+}
+
+.dark .lang-switch:hover {
+	color: #000000;
 }
 
 /* Footer */
@@ -588,25 +661,36 @@ h3 {
 	.header-content {
 		display: grid;
 		grid-template-areas:
-			"brand toggle"
-			"nav nav";
-		grid-template-columns: 1fr auto;
+			"brand actions toggle"
+			"nav nav nav";
+		grid-template-columns: 1fr auto auto;
 		align-items: center;
-		gap: 1.25rem 0.5rem;
+		gap: 1rem 0.5rem;
 	}
 	.header .brand {
 		grid-area: brand;
 		font-size: 1.25rem;
 	}
 	.header-right {
-		display: contents; /* Allow children to participate in the .header-content grid */
+		display: contents;
+	}
+	.header-actions {
+		grid-area: actions;
+		display: flex;
+		gap: 0.5rem;
 	}
 	.nav-toggle-container {
 		grid-area: toggle;
-		justify-self: end;
 		display: flex;
-		align-items: center;
-		gap: 0.75rem;
+	}
+	.header .header-actions .lang-switch,
+	.header .header-actions .btn {
+		padding: 0.4rem 0.6rem;
+		font-size: 0.75rem;
+		min-width: auto;
+	}
+	.btn-text {
+		display: none;
 	}
 	.mobile-menu-btn {
 		display: flex;
@@ -658,7 +742,7 @@ h3 {
 		padding: 0.4rem 0.8rem;
 	}
 	.hero .sticker-1 {
-		top: 18%;
+		top: 13%;
 		right: -2%;
 	}
 	.sticker-2,
@@ -669,7 +753,7 @@ h3 {
 		top: 32%;
 		bottom: auto;
 		left: auto;
-		right: -4%;
+		right: -3%;
 		--rotation: 8deg;
 	}
 	.footer-socials {
