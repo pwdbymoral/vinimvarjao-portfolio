@@ -66,6 +66,8 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 
 ## 🧭 Application Architecture
 
+- The global favicon uses the simplified ForjaCorp radial symbol in the brand purple and orange; browser and manifest metadata must reference the same asset.
+
 ### Portfolio
 
 - `/` redirects to the preferred localized portfolio.

@@ -8,8 +8,8 @@
 	"theme_color": "#facc15",
 	"icons": [
 		{
-			"src": "/vite.svg",
-			"sizes": "192x192",
+			"src": "/favicon.svg",
+			"sizes": "any",
 			"type": "image/svg+xml"
 		}
 	]

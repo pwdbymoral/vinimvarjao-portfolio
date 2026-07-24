@@ -3,7 +3,7 @@
 **Project:** Portfolio and Bio Contact Hub<br>
 **E2E Files:** 9<br>
 **Configured E2E Tests:** 74 (37 scenarios × Chromium and Firefox)<br>
-**Component Tests:** 9<br>
+**Component Tests:** 10<br>
 **Progress:** 9/9 E2E files documented
 
 > **Note:** This plan is synchronized with the 2026 Neo-Brutalist redesign and the transition to stacked interactive cards.
@@ -117,7 +117,7 @@
 **Component Coverage:**
 
 - `src/__tests__/BioPage.test.tsx` verifies the ForjaCorp home symbol, localized accessible labels, service ordering, contact allowlist, absence of portfolio links, ForjaCorp signature, and alternate-language labels.
-- `src/__tests__/deployment.test.ts` prevents public asset directories from shadowing root SPA routes.
+- `src/__tests__/deployment.test.ts` prevents public asset directories from shadowing root SPA routes and keeps browser/install metadata on the branded favicon.
 - `tests/production-smoke.spec.ts` verifies both the portfolio bundle and the `/bio/` trailing-slash entry point.
 
 ---
