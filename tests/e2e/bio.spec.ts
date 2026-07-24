@@ -73,6 +73,41 @@ test.describe("Bio contact hub", () => {
 		}
 	});
 
+	test("smoothly reveals services while respecting reduced motion", async ({
+		page,
+	}) => {
+		await page.addInitScript(() => {
+			const scrollIntoView = Element.prototype.scrollIntoView;
+
+			Element.prototype.scrollIntoView = function (
+				options?: boolean | ScrollIntoViewOptions,
+			) {
+				if (typeof options === "object") {
+					document.documentElement.dataset.bioScrollBehavior =
+						options.behavior ?? "";
+				}
+				return scrollIntoView.call(this, options);
+			};
+		});
+		await page.goto("/pt/bio");
+
+		await page.locator(".bio-scroll-cue").click();
+		await expect(page).toHaveURL(/#services$/);
+		await expect(page.locator("#services")).toBeInViewport();
+		await expect(page.locator("html")).toHaveAttribute(
+			"data-bio-scroll-behavior",
+			"smooth",
+		);
+
+		await page.emulateMedia({ reducedMotion: "reduce" });
+		await page.goto("/pt/bio");
+		await page.locator(".bio-scroll-cue").click();
+		await expect(page.locator("html")).toHaveAttribute(
+			"data-bio-scroll-behavior",
+			"auto",
+		);
+	});
+
 	test("exposes the authorized secondary contacts", async ({ page }) => {
 		await page.goto("/pt/bio");
 

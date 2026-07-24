@@ -1102,7 +1102,11 @@ h3 {
 	align-items: center;
 	gap: 0.55rem;
 	margin-top: 2rem;
+	padding: 0;
+	border: 0;
+	background: transparent;
 	color: var(--bio-muted);
+	font: inherit;
 	font-size: 0.82rem;
 	text-decoration: none;
 }

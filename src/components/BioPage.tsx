@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { type MouseEvent, useEffect } from "react";
 import {
 	FaGithub,
 	FaInstagram,
@@ -200,6 +200,19 @@ const whatsappMessage = encodeURIComponent(
 );
 const whatsappHref = `https://wa.me/5579981370707?text=${whatsappMessage}`;
 
+const revealServices = (event: MouseEvent<HTMLButtonElement>) => {
+	const services = document.getElementById("services");
+	if (!services) return;
+
+	event.preventDefault();
+	const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		? "auto"
+		: "smooth";
+
+	services.scrollIntoView({ behavior, block: "start" });
+	window.history.pushState(null, "", "#services");
+};
+
 export const BioPage = ({ lang }: BioPageProps) => {
 	const content = copy[lang] as (typeof copy)["pt"];
 
@@ -293,10 +306,14 @@ export const BioPage = ({ lang }: BioPageProps) => {
 						</span>
 					</a>
 
-					<a className="bio-scroll-cue" href="#services">
+					<button
+						type="button"
+						className="bio-scroll-cue"
+						onClick={revealServices}
+					>
 						{content.scrollCue}
 						<span aria-hidden="true">↓</span>
-					</a>
+					</button>
 				</section>
 
 				<section
