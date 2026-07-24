@@ -1,0 +1,20 @@
+* text=auto eol=lf
+
+# Scripts and container files must remain Unix-compatible.
+.husky/* text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+
+# Binary assets must never be normalized as text.
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.otf binary
+*.pdf binary
+*.png binary
+*.ttf binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.zip binary
