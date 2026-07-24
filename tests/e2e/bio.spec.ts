@@ -41,6 +41,38 @@ test.describe("Bio contact hub", () => {
 		);
 	});
 
+	test("uses one clean Forja cursor shape with link color feedback", async ({
+		page,
+	}) => {
+		await page.goto("/pt/bio");
+
+		const bodyCursor = await page
+			.locator("body")
+			.evaluate((element) =>
+				window.getComputedStyle(element).cursor.toLowerCase(),
+			);
+		const linkCursors = await page
+			.locator(".bio-primary-cta, .bio-scroll-cue")
+			.evaluateAll((elements) =>
+				elements.map((element) =>
+					window.getComputedStyle(element).cursor.toLowerCase(),
+				),
+			);
+
+		expect(bodyCursor).toContain("width='24'");
+		expect(bodyCursor).toContain("%23f0f0f0");
+		expect(bodyCursor).toContain("%23250a2b");
+		expect(bodyCursor).not.toContain("<circle");
+
+		expect(new Set(linkCursors).size).toBe(1);
+		for (const cursor of linkCursors) {
+			expect(cursor).toContain("width='24'");
+			expect(cursor).toContain("%23ea6a13");
+			expect(cursor).toContain("%23250a2b");
+			expect(cursor).not.toContain("<circle");
+		}
+	});
+
 	test("exposes the authorized secondary contacts", async ({ page }) => {
 		await page.goto("/pt/bio");
 

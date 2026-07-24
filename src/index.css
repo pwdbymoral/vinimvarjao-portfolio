@@ -64,12 +64,12 @@ body::before {
 }
 
 /* ------------------------
-   Custom Neo-Brutalist Cursors
+   Forja cursor
    ------------------------ */
 body {
 	cursor:
-		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23000000'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23ffffff' stroke='%23000000' stroke-width='2' stroke-linejoin='round'/></svg>")
-		4 4,
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M3 2.5L10 21L13.2 13.5L21 10.2Z' fill='%23F0F0F0' stroke='%23250A2B' stroke-width='1.8' stroke-linejoin='round'/></svg>")
+		3 3,
 		auto;
 }
 
@@ -80,28 +80,9 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"] {
 	cursor:
-		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23000000'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23facc15' stroke='%23000000' stroke-width='2' stroke-linejoin='round'/></svg>")
-		4 4,
-		pointer !important;
-}
-
-.dark {
-	cursor:
-		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23ffffff'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23000000' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/></svg>")
-		4 4,
-		auto;
-}
-
-.dark a,
-.dark button,
-.dark [role="button"],
-.dark input[type="submit"],
-.dark input[type="button"],
-.dark input[type="reset"] {
-	cursor:
-		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M6 6L15 28L19 18L29 14Z' fill='%23ffffff'/><path d='M4 4L13 26L17 16L27 12Z' fill='%23a855f7' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/></svg>")
-		4 4,
-		pointer !important;
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M3 2.5L10 21L13.2 13.5L21 10.2Z' fill='%23F0F0F0' stroke='%23250A2B' stroke-width='1.8' stroke-linejoin='round'/></svg>")
+		3 3,
+		pointer;
 }
 
 #root {
@@ -847,8 +828,13 @@ h3 {
 	mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
-.bio-page a {
+.bio-page a,
+.bio-page button {
 	color: inherit;
+	cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M3 2.5L10 21L13.2 13.5L21 10.2Z' fill='%23EA6A13' stroke='%23250A2B' stroke-width='1.8' stroke-linejoin='round'/></svg>")
+		3 3,
+		pointer;
 }
 
 .bio-page h1,
