@@ -1307,18 +1307,27 @@ h3 {
 }
 
 .bio-footer {
-	display: grid;
-	gap: 2rem;
-	padding: 1rem 0 max(2rem, env(safe-area-inset-bottom));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1.25rem 0 max(1.5rem, env(safe-area-inset-bottom));
 	border-top: 1px solid var(--bio-line);
 	color: var(--bio-muted);
-	font-size: 0.75rem;
+	font-size: 0.72rem;
+	text-align: center;
+}
+
+.bio-footer > p {
+	margin: 0;
+	line-height: 1.5;
 }
 
 .bio-brand-signature {
 	display: flex;
 	align-items: center;
-	gap: 0.8rem;
+	justify-content: center;
+	gap: 0.55rem;
 }
 
 .bio-brand-signature span {
@@ -1326,7 +1335,7 @@ h3 {
 }
 
 .bio-brand-signature img {
-	width: 8.5rem;
+	width: 7rem;
 	height: auto;
 	opacity: 0.82;
 }
@@ -1406,8 +1415,22 @@ h3 {
 	}
 
 	.bio-footer {
+		display: grid;
 		grid-template-columns: 1fr auto;
 		align-items: center;
+		gap: 2rem;
+		padding: 1rem 0 max(2rem, env(safe-area-inset-bottom));
+		font-size: 0.75rem;
+		text-align: left;
+	}
+
+	.bio-brand-signature {
+		justify-content: flex-start;
+		gap: 0.8rem;
+	}
+
+	.bio-brand-signature img {
+		width: 8.5rem;
 	}
 }
 

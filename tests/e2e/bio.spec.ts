@@ -159,4 +159,45 @@ test.describe("Bio contact hub", () => {
 			text: "rgb(37, 10, 43)",
 		});
 	});
+
+	test("keeps the mobile footer compact and visually centered", async ({
+		page,
+	}) => {
+		await page.goto("/pt/bio");
+
+		const footerLayout = await page
+			.locator(".bio-footer")
+			.evaluate((footer) => {
+				const style = window.getComputedStyle(footer);
+				const brand = footer.querySelector(".bio-brand-signature");
+				const logo = brand?.querySelector("img");
+				const footerRect = footer.getBoundingClientRect();
+				const brandRect = brand?.getBoundingClientRect();
+
+				return {
+					alignItems: style.alignItems,
+					display: style.display,
+					flexDirection: style.flexDirection,
+					gap: Number.parseFloat(style.gap),
+					height: footerRect.height,
+					brandCenterOffset: brandRect
+						? Math.abs(
+								brandRect.left +
+									brandRect.width / 2 -
+									(footerRect.left + footerRect.width / 2),
+							)
+						: Number.POSITIVE_INFINITY,
+					logoWidth:
+						logo?.getBoundingClientRect().width ?? Number.POSITIVE_INFINITY,
+				};
+			});
+
+		expect(footerLayout.display).toBe("flex");
+		expect(footerLayout.flexDirection).toBe("column");
+		expect(footerLayout.alignItems).toBe("center");
+		expect(footerLayout.gap).toBeLessThanOrEqual(16);
+		expect(footerLayout.height).toBeLessThanOrEqual(140);
+		expect(footerLayout.brandCenterOffset).toBeLessThanOrEqual(1);
+		expect(footerLayout.logoWidth).toBeLessThanOrEqual(112);
+	});
 });
