@@ -124,6 +124,7 @@ docker run -p 8080:80 portfolio
 - **Infrastructure**: [Dockerfile](Dockerfile) + [nginx.conf](nginx.conf)
 - **Engine**: Nginx Alpine (Ultra-lightweight)
 - **Routing**: SPA support enabled (fallback to index.html)
+- **Static assets**: Bio files use `/bio-assets`; public directories must not reuse SPA route names.
 - **CI/CD**: Always run `npm run test:prod` before deployment to ensure the build artifact is functional.
 
 ---

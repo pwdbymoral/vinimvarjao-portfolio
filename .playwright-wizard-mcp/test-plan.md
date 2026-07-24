@@ -2,8 +2,8 @@
 
 **Project:** Portfolio and Bio Contact Hub<br>
 **E2E Files:** 9<br>
-**Configured E2E Tests:** 66 (33 scenarios × Chromium and Firefox)<br>
-**Component Tests:** 6<br>
+**Configured E2E Tests:** 74 (37 scenarios × Chromium and Firefox)<br>
+**Component Tests:** 9<br>
 **Progress:** 9/9 E2E files documented
 
 > **Note:** This plan is synchronized with the 2026 Neo-Brutalist redesign and the transition to stacked interactive cards.
@@ -30,7 +30,7 @@
 **Pages:** Bio redirect → Localized contact hub → WhatsApp or secondary contact<br>
 **Why Critical:** Primary conversion flow for social profile visitors.<br>
 **File:** `tests/e2e/bio.spec.ts`<br>
-**Tests:** 3
+**Tests:** 6
 
 **Flow:**
 1. User opens the localized bio hub on mobile.
@@ -59,15 +59,15 @@
 | Feature Area         | Test Suite             | Tests | Priority | Status |
 | -------------------- | ---------------------- | ----- | -------- | ------ |
 | Core Portfolio UI    | portfolio.spec.ts      | 12    | P0       | ✅ Done |
-| Bio Contact Hub      | bio.spec.ts            | 3     | P0       | ✅ Done |
+| Bio Contact Hub      | bio.spec.ts            | 6     | P0       | ✅ Done |
 | Accessibility        | accessibility.spec.ts  | 5     | P0       | ✅ Done |
 | Education Section    | education.spec.ts      | 2     | P1       | ✅ Done |
 | Experience Section   | experience.spec.ts     | 3     | P1       | ✅ Done |
 | Mobile Layout        | mobile-header.spec.ts  | 2     | P1       | ✅ Done |
 | Content & Dark Mode  | content_fixes.spec.ts  | 4     | P2       | ✅ Done |
 | New Features (TDD)   | features.spec.ts       | 1     | P2       | ✅ Done |
-| Production Smoke     | production-smoke.spec.ts | 1   | P0       | ✅ Done |
-| **Total (per browser)**| **9 files**            | **33**| **-**    | **100%** |
+| Production Smoke     | production-smoke.spec.ts | 2   | P0       | ✅ Done |
+| **Total (per browser)**| **9 files**            | **37**| **-**    | **100%** |
 
 ---
 
@@ -110,10 +110,15 @@
 1. ✅ Localized bio route renders the profile, prioritized services, and two WhatsApp CTAs without horizontal overflow at 390px.
 2. ✅ LinkedIn, Instagram, GitHub, X/Twitter, and email use the approved URLs.
 3. ✅ WhatsApp hover keeps dark purple text on the light yellow background.
+4. ✅ Portrait crop excludes the distracting background number.
+5. ✅ Forja cursor renders as a single shape and changes color over links.
+6. ✅ Services CTA scrolls smoothly while respecting reduced-motion preferences.
 
 **Component Coverage:**
 
 - `src/__tests__/BioPage.test.tsx` verifies the ForjaCorp home symbol, localized accessible labels, service ordering, contact allowlist, absence of portfolio links, ForjaCorp signature, and alternate-language labels.
+- `src/__tests__/deployment.test.ts` prevents public asset directories from shadowing root SPA routes.
+- `tests/production-smoke.spec.ts` verifies both the portfolio bundle and the `/bio/` trailing-slash entry point.
 
 ---
 

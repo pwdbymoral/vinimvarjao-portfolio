@@ -22,6 +22,7 @@
 - Husky: Git hooks configured for linting and build.
 - UI Flavor: Neo-Brutalist (Expect high-contrast borders and bold typography).
 - Bio surface: Mobile-first ForjaCorp visual system with WhatsApp as the primary conversion action.
+- Static asset namespace: Bio files are served from `/bio-assets`, keeping the physical public directory distinct from the `/bio` SPA route under Nginx.
 
 ## Route Map
 

@@ -80,6 +80,7 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 - WhatsApp is the primary CTA; approved secondary contacts are LinkedIn, Instagram, GitHub, X/Twitter, and email.
 - Service priority is Software Development, Paid Media, then Automation and Integrations.
 - The ForjaCorp identity is visual only and must remain discreet.
+- Bio assets live under `/bio-assets`; never create `public/bio`, because that physical directory shadows the `/bio` SPA route in Nginx.
 - The top-left portfolio link uses the original ForjaCorp radial symbol; do not replace it with ambiguous initials.
 - Project showcase links, current-employer details, and pricing do not belong on this surface.
 - With only two languages, the direct switch shows the alternate language by name (`English` or `Português`).
@@ -87,7 +88,9 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 ### Bio Quality Gates
 
 - Component behavior: `src/__tests__/BioPage.test.tsx`.
+- Deployment topology: `src/__tests__/deployment.test.ts`.
 - Browser regression: `tests/e2e/bio.spec.ts`.
+- Production route regression: `tests/production-smoke.spec.ts`.
 - Verify mobile width, approved contact URLs, WhatsApp CTA count, alternate-language copy, and hover contrast.
 
 ---
