@@ -35,3 +35,33 @@
 - ✅ Navigation links confirmed to point to correct anchors.
 - ✅ Hero actions confirmed.
 - ✅ Project card links (GitHub & Live Demo) verified.
+
+---
+
+## Bio Contact Hub (`/pt/bio`, `/en/bio`) — VERIFIED
+
+**Verification:** ✅ Chromium E2E, ✅ 390×844 mobile viewport, ✅ selectors verified
+
+The localized bio page is a standalone contact surface. The portfolio header, footer, project grid, and employer details are intentionally absent.
+
+| Element | Role / Text | Recommended Selector | Status |
+| --- | --- | --- | --- |
+| Portfolio home | Link “Página inicial” / “Portfolio home” | `getByRole('link', { name: 'Página inicial' })` | ✅ VERIFIED (ForjaCorp radial symbol) |
+| Profile name | Heading “Vinícius Varjão” | `getByRole('heading', { level: 1, name: 'Vinícius Varjão' })` | ✅ VERIFIED |
+| Primary CTA | Link “Falar sobre um projeto” | `getByRole('link', { name: /Falar sobre um projeto/i })` | ✅ VERIFIED (2 instances) |
+| Services | Region “Serviços” | `getByRole('region', { name: 'Serviços' })` | ✅ VERIFIED |
+| Language switch | Link “Ver página em inglês” | `getByRole('link', { name: 'Ver página em inglês' })` | ✅ VERIFIED |
+| LinkedIn | Link “LinkedIn” | `getByRole('link', { name: 'LinkedIn' })` | ✅ VERIFIED |
+| Instagram | Link “Instagram” | `getByRole('link', { name: 'Instagram' })` | ✅ VERIFIED |
+| GitHub | Link “GitHub” | `getByRole('link', { name: 'GitHub' })` | ✅ VERIFIED |
+| X/Twitter | Link “Twitter” | `getByRole('link', { name: 'Twitter' })` | ✅ VERIFIED |
+| Email | Link “E-mail” | `getByRole('link', { name: 'E-mail' })` | ✅ VERIFIED |
+| ForjaCorp signature | Image “ForjaCorp” | `getByAltText('ForjaCorp')` | ✅ VERIFIED |
+
+**Critical assertions:**
+
+- No horizontal overflow at 390px.
+- WhatsApp URLs use `5579981370707`.
+- The three services stay in the approved priority order.
+- The WhatsApp hover state uses dark purple text on the light yellow background.
+- The direct language action shows the alternate language by name.

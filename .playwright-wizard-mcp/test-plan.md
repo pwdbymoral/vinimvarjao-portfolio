@@ -1,9 +1,10 @@
 # Test Plan
 
-**Project:** Portfolio Redesign (Neo-Brutalist)  
-**Total Suites:** 6  
-**Total Tests:** 48 (Multi-browser)  
-**Progress:** 6/6 suites (100%)
+**Project:** Portfolio and Bio Contact Hub<br>
+**E2E Files:** 9<br>
+**Configured E2E Tests:** 66 (33 scenarios × Chromium and Firefox)<br>
+**Component Tests:** 6<br>
+**Progress:** 9/9 E2E files documented
 
 > **Note:** This plan is synchronized with the 2026 Neo-Brutalist redesign and the transition to stacked interactive cards.
 
@@ -25,14 +26,31 @@
 
 ---
 
+### Journey 2: Qualified Contact (`/bio`) (P0)
+**Pages:** Bio redirect → Localized contact hub → WhatsApp or secondary contact<br>
+**Why Critical:** Primary conversion flow for social profile visitors.<br>
+**File:** `tests/e2e/bio.spec.ts`<br>
+**Tests:** 3
+
+**Flow:**
+1. User opens the localized bio hub on mobile.
+2. User understands the software, paid media, and automation positioning.
+3. User starts a qualified WhatsApp conversation or selects an approved secondary contact.
+4. User can switch to the equivalent page in the alternate language.
+
+---
+
 ## Implementation Status
 
 - [x] **portfolio.spec.ts** - Core functionality & Redesign Verification ✅
+- [x] **accessibility.spec.ts** - WCAG and semantic regression coverage ✅
+- [x] **bio.spec.ts** - Mobile contact hub, URLs, overflow, and hover contrast ✅
 - [x] **education.spec.ts** - Education section & navigation ✅
 - [x] **experience.spec.ts** - Experience section & navigation ✅
 - [x] **mobile-header.spec.ts** - Mobile layout integrity ✅
 - [x] **content_fixes.spec.ts** - Content accuracy & Dark Mode ✅
 - [x] **features.spec.ts** - Premium feature TDD verification ✅
+- [x] **production-smoke.spec.ts** - Production bundle smoke coverage ✅
 
 ---
 
@@ -41,18 +59,21 @@
 | Feature Area         | Test Suite             | Tests | Priority | Status |
 | -------------------- | ---------------------- | ----- | -------- | ------ |
 | Core Portfolio UI    | portfolio.spec.ts      | 12    | P0       | ✅ Done |
+| Bio Contact Hub      | bio.spec.ts            | 3     | P0       | ✅ Done |
+| Accessibility        | accessibility.spec.ts  | 5     | P0       | ✅ Done |
 | Education Section    | education.spec.ts      | 2     | P1       | ✅ Done |
 | Experience Section   | experience.spec.ts     | 3     | P1       | ✅ Done |
 | Mobile Layout        | mobile-header.spec.ts  | 2     | P1       | ✅ Done |
 | Content & Dark Mode  | content_fixes.spec.ts  | 4     | P2       | ✅ Done |
 | New Features (TDD)   | features.spec.ts       | 1     | P2       | ✅ Done |
-| **Total (per browser)**| **6 suites**           | **24**| **-**    | **100%** |
+| Production Smoke     | production-smoke.spec.ts | 1   | P0       | ✅ Done |
+| **Total (per browser)**| **9 files**            | **33**| **-**    | **100%** |
 
 ---
 
 ## Suite: portfolio.spec.ts
 
-**Priority:** P0 (Critical)  
+**Priority:** P0 (Critical)
 **Why:** Verification of the 2026 redesign and professional narrative.  
 **Estimated time:** 1 hour
 
@@ -70,12 +91,29 @@
 10. ✅ Social links (GitHub, LinkedIn) point to correct professional profiles.
 
 **Dependencies:**
-- Static project data in `App.tsx`.
+- Static project data in `src/components/Portfolio.tsx`.
 - Neo-Brutalist CSS Variables in `index.css`.
 
 **Suite-Specific Considerations:**
 - Verify high-contrast borders and shadows (Neo-Brutalism).
 - Test across Desktop and Mobile (single-column grid).
+
+---
+
+## Suite: bio.spec.ts
+
+**Priority:** P0 (Critical)<br>
+**Why:** Verifies the mobile-first conversion surface used from social profiles.
+
+**Test Cases:**
+
+1. ✅ Localized bio route renders the profile, prioritized services, and two WhatsApp CTAs without horizontal overflow at 390px.
+2. ✅ LinkedIn, Instagram, GitHub, X/Twitter, and email use the approved URLs.
+3. ✅ WhatsApp hover keeps dark purple text on the light yellow background.
+
+**Component Coverage:**
+
+- `src/__tests__/BioPage.test.tsx` verifies the ForjaCorp home symbol, localized accessible labels, service ordering, contact allowlist, absence of portfolio links, ForjaCorp signature, and alternate-language labels.
 
 ---
 
