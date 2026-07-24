@@ -757,7 +757,7 @@ h3 {
    ------------------------ */
 @font-face {
 	font-family: "Host Grotesk";
-	src: url("/bio/fonts/host-grotesk-400.ttf") format("truetype");
+	src: url("/bio-assets/fonts/host-grotesk-400.ttf") format("truetype");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 400;
@@ -765,7 +765,7 @@ h3 {
 
 @font-face {
 	font-family: "Host Grotesk";
-	src: url("/bio/fonts/host-grotesk-600.ttf") format("truetype");
+	src: url("/bio-assets/fonts/host-grotesk-600.ttf") format("truetype");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 600;
@@ -773,7 +773,7 @@ h3 {
 
 @font-face {
 	font-family: "Roboto Bio";
-	src: url("/bio/fonts/roboto-400.ttf") format("truetype");
+	src: url("/bio-assets/fonts/roboto-400.ttf") format("truetype");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 400;
@@ -781,7 +781,7 @@ h3 {
 
 @font-face {
 	font-family: "Roboto Bio";
-	src: url("/bio/fonts/roboto-500.ttf") format("truetype");
+	src: url("/bio-assets/fonts/roboto-500.ttf") format("truetype");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 500;
@@ -916,8 +916,8 @@ h3 {
 	width: 1.35rem;
 	height: 1.35rem;
 	background: var(--bio-orange);
-	-webkit-mask: url("/bio/star-purple.svg") center / contain no-repeat;
-	mask: url("/bio/star-purple.svg") center / contain no-repeat;
+	-webkit-mask: url("/bio-assets/star-purple.svg") center / contain no-repeat;
+	mask: url("/bio-assets/star-purple.svg") center / contain no-repeat;
 	transition:
 		background 160ms ease,
 		transform 160ms ease,

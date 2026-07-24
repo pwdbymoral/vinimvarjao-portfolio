@@ -16,4 +16,14 @@ test.describe("Production Smoke Test", () => {
 		// Check if the page title is correct (SEO requirement)
 		await expect(page).toHaveTitle(/Vinícius Varjão/i);
 	});
+
+	test("should serve the bio route with a trailing slash", async ({ page }) => {
+		const response = await page.goto("/bio/");
+
+		expect(response?.ok()).toBe(true);
+		await expect(page).toHaveURL(/\/(?:pt|en)\/bio$/);
+		await expect(
+			page.getByRole("heading", { name: /Vinícius Varjão/i }),
+		).toBeVisible();
+	});
 });

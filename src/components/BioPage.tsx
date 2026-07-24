@@ -237,13 +237,13 @@ export const BioPage = ({ lang }: BioPageProps) => {
 		<main className="bio-page">
 			<img
 				className="bio-decoration bio-decoration-brackets"
-				src="/bio/brackets-gradient.svg"
+				src="/bio-assets/brackets-gradient.svg"
 				alt=""
 				aria-hidden="true"
 			/>
 			<img
 				className="bio-decoration bio-decoration-star"
-				src="/bio/star-purple.svg"
+				src="/bio-assets/star-purple.svg"
 				alt=""
 				aria-hidden="true"
 			/>
@@ -271,7 +271,7 @@ export const BioPage = ({ lang }: BioPageProps) => {
 					<div className="bio-photo-frame">
 						<img
 							className="bio-photo"
-							src="/bio/vinicius.jpg"
+							src="/bio-assets/vinicius.jpg"
 							alt="Vinícius Varjão"
 						/>
 					</div>
@@ -430,7 +430,7 @@ export const BioPage = ({ lang }: BioPageProps) => {
 					<p>{content.footerText}</p>
 					<div className="bio-brand-signature">
 						<span>{content.brandText}</span>
-						<img src="/bio/forjacorp-logo.svg" alt="ForjaCorp" />
+						<img src="/bio-assets/forjacorp-logo.svg" alt="ForjaCorp" />
 					</div>
 				</footer>
 			</div>
