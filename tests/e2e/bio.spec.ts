@@ -30,6 +30,17 @@ test.describe("Bio contact hub", () => {
 		expect(documentWidth).toBeLessThanOrEqual(390);
 	});
 
+	test("uses the intended portrait crop", async ({ page }) => {
+		await page.goto("/pt/bio");
+
+		const portrait = page.locator(".bio-photo");
+		await expect(portrait).toHaveCSS("object-position", "50% 42%");
+		await expect(portrait).toHaveCSS(
+			"transform",
+			"matrix(1.44, 0, 0, 1.44, 0, 0)",
+		);
+	});
+
 	test("exposes the authorized secondary contacts", async ({ page }) => {
 		await page.goto("/pt/bio");
 
