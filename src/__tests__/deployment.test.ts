@@ -3,6 +3,17 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 describe("deployment asset topology", () => {
+	it("lets Coolify manage the application network", () => {
+		const compose = readFileSync(
+			resolve(process.cwd(), "docker-compose.yaml"),
+			"utf8",
+		);
+
+		expect(compose).not.toMatch(/^\s+networks:/m);
+		expect(compose).not.toMatch(/^networks:/m);
+		expect(compose).not.toContain("external: true");
+	});
+
 	it("keeps public asset directories distinct from root SPA routes", () => {
 		const rootSpaRoutes = new Set(["bio"]);
 		const publicDirectories = readdirSync(resolve(process.cwd(), "public"), {
