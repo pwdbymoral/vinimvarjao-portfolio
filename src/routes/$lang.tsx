@@ -1,4 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import {
+	createFileRoute,
+	Outlet,
+	useRouterState,
+} from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Portfolio } from "../components/Portfolio";
@@ -10,6 +14,9 @@ export const Route = createFileRoute("/$lang")({
 function LanguageWrapper() {
 	const { lang } = Route.useParams();
 	const { i18n } = useTranslation();
+	const pathname = useRouterState({
+		select: (state) => state.location.pathname,
+	});
 
 	useEffect(() => {
 		if (i18n.language !== lang) {
@@ -18,5 +25,5 @@ function LanguageWrapper() {
 		document.documentElement.lang = lang;
 	}, [lang, i18n]);
 
-	return <Portfolio />;
+	return pathname.endsWith("/bio") ? <Outlet /> : <Portfolio />;
 }

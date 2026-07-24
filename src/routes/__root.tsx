@@ -1,4 +1,8 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	Outlet,
+	useRouterState,
+} from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -8,6 +12,10 @@ export const Route = createRootRoute({
 });
 
 function RootLayout() {
+	const pathname = useRouterState({
+		select: (state) => state.location.pathname,
+	});
+	const isBioPage = pathname === "/bio" || pathname.endsWith("/bio");
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -47,6 +55,8 @@ function RootLayout() {
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "auto" });
 	};
+
+	if (isBioPage) return <Outlet />;
 
 	return (
 		<>
