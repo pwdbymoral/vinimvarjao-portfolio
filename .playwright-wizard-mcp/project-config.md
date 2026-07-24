@@ -34,6 +34,7 @@
 
 ## Cross-Platform Rules
 
+- `npm run setup` configures local Git, installs locked dependencies, installs Chromium and Firefox, and validates a fresh clone.
 - `.gitattributes` forces LF for text and excludes binary assets from normalization.
 - `.editorconfig` standardizes UTF-8, LF, final newlines, and trailing whitespace.
 - Windows clones use `core.filemode=false`; native Linux clones use `core.filemode=true`.

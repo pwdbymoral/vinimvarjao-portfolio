@@ -63,14 +63,16 @@ This project strictly adheres to the **Red-Green-Refactor** cycle. Every feature
 
 ### Prerequisites
 - Node.js (Latest LTS)
-- npm or yarn
+- Git
 
 ### Installation
 ```bash
 git clone https://github.com/pwdbymoral/vinimvarjao-portfolio.git
 cd vinimvarjao-portfolio
-npm install
+npm run setup
 ```
+
+The one-time setup configures Git for the current operating system, installs the locked npm dependencies, installs the Chromium and Firefox binaries required by Playwright, and verifies the project. On Linux, Playwright may request administrator access to install browser system dependencies.
 
 ### Running Locally
 ```bash

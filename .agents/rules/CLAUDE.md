@@ -15,6 +15,7 @@ This file is the **Source of Truth** for all development workflows. It must be u
 
 ### Build & Dev
 
+- **First-time Setup**: `npm run setup` (Local Git settings, locked dependencies, Playwright browsers, and full verification)
 - **Dev Server**: `npm run dev`
 - **Production Build**: `npm run build`
 - **Preview Build**: `npm run preview`
@@ -93,6 +94,7 @@ This project follows a strict **Test-Driven Development** cycle. **NO** implemen
 
 ## 💻 Cross-Platform Repository Rules
 
+- `npm run setup` is the canonical bootstrap command after cloning the repository.
 - `.gitattributes` is authoritative for LF line endings and binary asset handling.
 - `.editorconfig` is authoritative for UTF-8, LF, final newlines, and trailing whitespace.
 - Husky hooks must remain executable in Git (`100755`).
