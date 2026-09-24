@@ -85,7 +85,13 @@ export const Header = ({
 							onClick={() => changeLanguage(lang === "en" ? "pt" : "en")}
 							aria-label="Change Language"
 						>
-							{lang === "en" ? "🇧🇷 " : "🇺🇸 "}
+							<img
+								aria-hidden="true"
+								alt=""
+								height="14"
+								src={lang === "en" ? "/flags/br.svg" : "/flags/us.svg"}
+								width="22"
+							/>
 							<span className="btn-text">{lang === "en" ? "PT" : "EN"}</span>
 						</button>
 						<button
